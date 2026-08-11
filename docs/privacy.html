@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Ambrogio</title>
+<meta name="description" content="Ambrogio runs on a box you own. There is no cloud account, no dashboard, and nothing comes back to the developer. This page says exactly what leaves your house, and why.">
+<meta property="og:title" content="Ambrogio — Privacy">
+<meta property="og:description" content="What leaves your house, and why. Ambrogio runs on hardware you own; the developer operates no server and receives nothing.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2324513B'/><circle cx='16' cy='13' r='4.6' fill='%23F0F4EF'/><path d='M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z' fill='%23A8823E'/></svg>">
+
+<!-- Same rules as the landing page: no fonts CDN, no analytics, no trackers, no embeds. A
+     privacy policy that phoned a font server on the reader's behalf would be its own refutation.
+     This page makes ZERO network calls. -->
+<style>
+  :root{
+    --livrea:#24513B; --livrea-deep:#1A3B2B; --livrea-tint:#E8F0EA; --on-livrea:#F0F4EF;
+    --ottone:#A8823E; --ottone-tint:#F5EEDF;
+    --paper:#F7F8F5; --panel:#FFFFFF; --ink:#20261F; --muted:#68716A; --line:#DDE2DA;
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --measure: 66ch;
+    --pad: clamp(20px, 5vw, 40px);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0; background:var(--paper); color:var(--ink);
+       font-family:var(--sans); font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px; margin:0 auto; padding-inline:var(--pad)}
+  .col{max-width:var(--measure)}
+  h1,h2,h3{font-family:var(--serif); font-weight:600; text-wrap:balance; margin:0}
+  h1{font-size:clamp(30px,5vw,44px); line-height:1.15}
+  h2{font-size:clamp(21px,3vw,27px); margin-top:2.4em; margin-bottom:.5em}
+  h3{font-size:18px; margin-top:1.8em; margin-bottom:.35em}
+  p{margin:0 0 1em}
+  a{color:var(--livrea)}
+  header{background:var(--livrea); color:var(--on-livrea); padding-block:clamp(28px,6vw,54px)}
+  header a{color:var(--on-livrea); opacity:.85}
+  header h1{color:var(--on-livrea)}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+           opacity:.75; margin-bottom:.9em}
+  .lede{font-size:clamp(18px,2.4vw,21px); opacity:.93; margin-top:.7em; max-width:var(--measure)}
+  main{padding-block:clamp(30px,6vw,56px)}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:14px;
+        padding:clamp(18px,3.4vw,26px); margin:1.4em 0; max-width:var(--measure)}
+  .card h3{margin-top:0}
+  .card p:last-child{margin-bottom:0}
+  .flow{list-style:none; padding:0; margin:1.2em 0; max-width:var(--measure)}
+  .flow li{background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--ottone);
+           border-radius:10px; padding:14px 16px; margin-bottom:10px}
+  .flow b{font-family:var(--mono); font-size:13.5px; color:var(--livrea-deep);
+          display:block; margin-bottom:.25em; letter-spacing:.01em}
+  .flow p{margin:0; font-size:15.5px}
+  .never{border-left-color:var(--livrea); background:var(--livrea-tint)}
+  ul.plain{max-width:var(--measure); padding-left:1.15em}
+  ul.plain li{margin-bottom:.5em}
+  code{font-family:var(--mono); font-size:.9em; background:var(--ottone-tint);
+       padding:.1em .35em; border-radius:4px}
+  .note{color:var(--muted); font-size:15px; max-width:var(--measure)}
+  footer{border-top:1px solid var(--line); margin-top:clamp(40px,8vw,80px);
+         padding-block:28px; color:var(--muted); font-size:14.5px}
+  .links{display:flex; flex-wrap:wrap; gap:18px; margin-bottom:12px}
+  .fine{max-width:var(--measure); margin:0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap col">
+    <p class="eyebrow">Ambrogio</p>
+    <h1>Privacy</h1>
+    <p class="lede">
+      Ambrogio runs on a small computer you own, in your house. There is no account to create and
+      no dashboard in someone else's data centre. This page says exactly what leaves your house,
+      and why — including the parts that do.
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="card">
+    <h3>The short version</h3>
+    <p>
+      Your data lives on your box. The developer of Ambrogio operates <b>no server</b>, has no
+      account system, and receives <b>nothing</b> — no telemetry, no crash reports, no analytics,
+      no copy of your messages. There is nowhere for us to look, which is a stronger promise than
+      a policy saying we won't.
+    </p>
+    <p>
+      Three things do leave your house, all of them because you asked for a feature that needs
+      them. They are listed below, by name.
+    </p>
+  </div>
+
+  <h2>Where your data actually is</h2>
+  <p class="col">
+    Everything Ambrogio knows — your messages, your email, your calendar, what it remembers about
+    your household — is stored on the Raspberry Pi (or equivalent computer) that you flashed and
+    plugged in. The iOS app talks to that box and to nothing else. When you are away from home it
+    reaches the box over your own private network (Tailscale); the traffic is encrypted end to
+    end between your phone and your box.
+  </p>
+  <p class="col">
+    Deleting your data means deleting it from your box, or unplugging the box. Nobody has to
+    approve that, and no copy survives somewhere else.
+  </p>
+
+  <h2>What leaves your house, and why</h2>
+
+  <ul class="flow">
+    <li>
+      <b>Your box → Anthropic (Claude)</b>
+      <p>
+        Ambrogio thinks with Claude, using <b>your own</b> Claude subscription or API key, which
+        you provide during setup. When you talk to Ambrogio, the box sends the conversation to
+        Anthropic's API to get an answer, along with whatever context that answer needs — which
+        can include the content of an email you asked about, a file you sent, or notes it has
+        saved for you. This is the relationship between you and Anthropic, under your own
+        credential and their terms; the developer of Ambrogio is not a party to it and never sees
+        the traffic. The app itself never contacts Anthropic — only your box does.
+      </p>
+    </li>
+    <li>
+      <b>Your box → Expo → Apple, for push notifications</b>
+      <p>
+        If you turn on notifications in the app, the box asks Expo's push service to ring your
+        phone through Apple. <b>The notification carries no content</b> — only a generic category
+        such as "New message", "Heads up" or "Urgent". The real text stays on your box and the app
+        fetches it when you open it. So the fact that Ambrogio wants your attention transits Expo
+        and Apple; what it wants to say does not.
+      </p>
+    </li>
+    <li>
+      <b>Your box → Telegram, only if you connect it</b>
+      <p>
+        Ambrogio can be used from Telegram. If you set that up, those messages travel through
+        Telegram's servers like any other Telegram chat, and their privacy policy applies to them.
+        This is optional: use the app and the web console instead and Telegram is never involved.
+      </p>
+    </li>
+    <li class="never">
+      <b>Your box → the developer</b>
+      <p>
+        Never. There is no such channel. The app contains no analytics SDK, no crash reporter and
+        no tracking of any kind, and the box does not phone home. Updates are something you fetch
+        from GitHub when you choose to.
+      </p>
+    </li>
+  </ul>
+
+  <h2>Apple Health</h2>
+  <p class="col">
+    If you choose to connect Apple Health, Ambrogio reads these specific things, and nothing else:
+  </p>
+  <ul class="plain">
+    <li><b>Active energy burned</b> and <b>resting energy burned</b>, per day — so the diet
+      feature can show what you ate against what you spent.</li>
+    <li><b>Body mass</b> and <b>height</b> — so you don't have to type them.</li>
+    <li><b>Biological sex</b> — used only in the arithmetic that turns the above into a daily
+      figure.</li>
+  </ul>
+  <p class="col">
+    Ambrogio never writes anything to Apple Health. This is off until you turn it on, iOS asks you
+    separately before any of it is readable, and you can withdraw it at any time in
+    Settings → Health → Data Access &amp; Devices. Health figures are stored on your box alongside
+    the rest of your data, are never placed in iCloud, and are never used for advertising,
+    marketing or profiling — there is nobody here to advertise to you.
+  </p>
+  <div class="card">
+    <h3>One thing to be aware of</h3>
+    <p>
+      Ambrogio's answers are produced by Claude, so if you <b>ask it a question about your health
+      figures</b>, those figures go to Anthropic as part of the question — the same as any other
+      thing you ask about. The box does its own arithmetic locally and does not send your health
+      data anywhere on its own initiative. If you would rather it never left the box at all, use
+      the diet page and don't ask about it in chat.
+    </p>
+  </div>
+
+  <h2>What the app keeps on your phone</h2>
+  <p class="col">
+    The address of your box and the token that pairs your phone to it, in the iOS keychain; your
+    own display preferences; and a cached copy of the recent conversation so the app opens
+    instantly. Removing the app removes all of it. "Unpair this device" in the app removes the
+    token from the box as well.
+  </p>
+
+  <h2>Everyone in the household</h2>
+  <p class="col">
+    An Ambrogio box can serve several people, each with their own data and their own permissions.
+    Whoever set the box up administers it and can see that other members exist, what they are
+    allowed to do, and anything explicitly shared with them — they cannot read another member's
+    private conversations or mail. If a child uses Ambrogio, the same applies, and the adult who
+    set the box up is responsible for what it is allowed to do.
+  </p>
+
+  <h2>Changes</h2>
+  <p class="col">
+    If what leaves your house ever changes, this page changes with it and the date below moves.
+    Ambrogio is open about its own workings on purpose: if you want to check any statement here,
+    the code that does it is public.
+  </p>
+
+  <h2>Contact</h2>
+  <p class="col">
+    Questions about this page, or about something Ambrogio does that you don't like:
+    <a href="https://github.com/simonerom/Ambrogio-releases/issues">open an issue</a>.
+  </p>
+
+  <p class="note">Last updated: 11 August 2026.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="./">Ambrogio</a>
+      <a href="https://github.com/simonerom/Ambrogio-releases">GitHub</a>
+      <a href="https://github.com/simonerom/Ambrogio-releases/blob/main/FLASHING.md">Get started</a>
+      <a href="https://github.com/simonerom/Ambrogio-releases/blob/main/LICENSE.md">License</a>
+    </div>
+    <p class="fine">
+      Ambrogio is released under the PolyForm Noncommercial 1.0.0 licence — free for personal,
+      family, hobby, educational and charitable use. It needs your own Claude subscription to think.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
