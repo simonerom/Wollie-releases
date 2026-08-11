@@ -131,6 +131,18 @@
   }
 
   /* ---------- downloads ---------- */
+  /* The privacy band. Tinted rather than white so it reads as the page's one claim, not as
+     another feature section. */
+  .privacy{background:var(--livrea-tint)}
+  .pcards{margin-top:clamp(26px,4vw,36px); display:grid; gap:14px}
+  @media (min-width:820px){ .pcards{grid-template-columns:repeat(3,1fr)} }
+  .pcard{background:var(--panel); border:1px solid var(--line); border-radius:13px; padding:22px}
+  .pcard h3{font-size:17px; margin:0}
+  .pcard p{margin-top:8px; font-size:15.5px; color:var(--muted); line-height:1.55}
+  .pmore{margin-top:22px}
+  .pmore a{color:var(--livrea); font-weight:600; text-decoration:none;
+           border-bottom:1px solid var(--ottone); padding-bottom:2px}
+  .pmore a:hover{border-bottom-color:var(--livrea)}
   .cards{margin-top:clamp(30px,5vw,42px); display:grid; gap:14px}
   @media (min-width:760px){ .cards{grid-template-columns:repeat(2,1fr)} }
   .card{
@@ -214,6 +226,50 @@ sudo python3 flash_box.py --flash</code>
     </div>
   </div>
 </header>
+
+<!-- The privacy band sits FIRST because it is the reason to choose this over a cloud
+     assistant, and because a claim that specific is only believable if it is checkable — so it
+     names the three things that do leave, and links to the page that details them. Concrete
+     facts, no slogan: "we take your privacy seriously" is what every data broker's site says. -->
+<section class="privacy">
+  <div class="wrap">
+    <div class="eyebrow">Privacy</div>
+    <h2>There is no cloud. There is your box.</h2>
+    <p class="lede">
+      Most assistants keep your life on someone else's servers. Ambrogio keeps it on hardware
+      you own and can unplug. Three things do leave your house, and here they are.
+    </p>
+
+    <div class="pcards">
+      <div class="pcard">
+        <h3>Your data stays on your box</h3>
+        <p>
+          Your messages, your mail, your calendar, what it remembers — all of it on the Pi on
+          your shelf. No account to create. Deleting it means deleting it there.
+        </p>
+      </div>
+      <div class="pcard">
+        <h3>What leaves, and only this</h3>
+        <p>
+          Claude, to think — on <b>your own</b> subscription, from the box, never from the app.
+          A push notification that carries a category and no content. Telegram, only if you
+          connect it.
+        </p>
+      </div>
+      <div class="pcard">
+        <h3>Nothing comes back to us</h3>
+        <p>
+          No telemetry, no analytics, no crash reports. The app ships no tracking SDK and the
+          box does not phone home. There is nowhere for us to look.
+        </p>
+      </div>
+    </div>
+
+    <p class="pmore">
+      <a href="./privacy.html">What leaves your house, in detail →</a>
+    </p>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
