@@ -161,7 +161,11 @@
       <p>
         <b>If you would rather this server were not in the path</b>, there are two ways out, both
         supported: put your own Anthropic API key in the app, and it talks to Anthropic directly;
-        or set up a box, and it talks to your box.
+        or set up a box, and it talks to your box. Both take this server out of the path
+        <i>for answering you</i>; the public lookups in the next item are made by the app itself
+        and are unaffected by either. To have the token this server issued you revoked, or your
+        row and transcripts deleted,
+        <a href="https://github.com/simonerom/Ambrogio-releases/issues">ask</a>.
       </p>
     </li>
     <li>
@@ -294,13 +298,22 @@
     you want to be certain, clear the key in the app before removing it.
   </p>
   <p class="col">
-    &ldquo;Unpair this device&rdquo; removes the token from your box. On the gateway there are
-    three separate things, and it is fair to say which is which: <b>revoking</b> stops the token
-    working immediately, but leaves the row (its id, the phone-model label, the date) and the
-    running count of what it used; <b>forgetting</b> deletes that row; and the <b>transcripts</b>
-    described above are a third thing, which neither of those touches. Ask for any or all of
-    them and it will be done by hand — there is no self-service button for it yet, and pretending
-    otherwise would be the easiest lie on this page.
+    &ldquo;Unpair this device&rdquo; removes the token from your box. The gateway is less tidy
+    than that, and the honest thing is to lay it out rather than use one word for all of it:
+  </p>
+  <ul class="plain">
+    <li><b>Revoking</b> your token stops it working immediately. It leaves everything else: the
+      row itself (its id, the phone-model label, the dates) and the running count of what it
+      used.</li>
+    <li><b>Deleting the row</b> removes that record.</li>
+    <li>Two things survive both of those: the <b>transcripts</b> described above, and a short
+      <b>usage trace</b> — when your token was last seen, and a session fingerprint the server
+      keeps to match a conversation back to its process. Neither is pruned on a schedule today.</li>
+  </ul>
+  <p class="col">
+    Ask for any or all of it and it is done by hand. There is no self-service button, no
+    automatic expiry, and saying otherwise would be the easiest lie on this page. If that
+    changes, it changes here first.
   </p>
 
   <h2>What the app asks your phone for</h2>
