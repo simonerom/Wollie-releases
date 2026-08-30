@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ambrogio — a household assistant that lives in your house</title>
-<meta name="description" content="A self-hosted assistant for your family, running on a Raspberry Pi you own. It reads your email, keeps your calendar, runs your devices — and everything it knows lives on your box, not in someone's cloud.">
+<meta name="description" content="A self-hosted assistant for your family, running on a Raspberry Pi you own. It reads your email, keeps your calendar, runs your devices — and everything it knows lives on that box. During the iPhone beta you can also run it without one; the privacy page names what changes.">
 <meta property="og:title" content="Ambrogio">
-<meta property="og:description" content="A household assistant on a Raspberry Pi you own. No account to create; your data lives on your box, not in someone's cloud.">
+<meta property="og:description" content="A household assistant on a Raspberry Pi you own. No account to create; your data lives on that box. Trying the iPhone beta without a Pi? We name every place your words go.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2324513B'/><circle cx='16' cy='13' r='4.6' fill='%23F0F4EF'/><path d='M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z' fill='%23A8823E'/></svg>">
 
@@ -208,6 +208,10 @@
       what matters. <b>Everything I know stays on that box</b>: no account to create, no
       dashboard in someone else's data centre, no remote login left open. I think with
       Claude, on your own subscription. You flash a card, plug it in, and say hello.
+      <br><br>
+      Don't have a Pi yet? The iPhone app also runs on its own during the beta — fewer
+      things, and your questions pass through a server I run rather than one you own.
+      <a href="./privacy.html">The privacy page says exactly what that changes.</a>
     </p>
 
     <div class="cmd">
@@ -229,24 +233,33 @@ sudo python3 flash_box.py --flash</code>
 
 <!-- The privacy band sits FIRST because it is the reason to choose this over a cloud
      assistant, and because a claim that specific is only believable if it is checkable — so it
-     names the three things that do leave, and links to the page that details them. Concrete
-     facts, no slogan: "we take your privacy seriously" is what every data broker's site says. -->
+     names what leaves and links to the page that lists all of it. Concrete facts, no slogan:
+     "we take your privacy seriously" is what every data broker's site says.
+
+     ⚠ IT USED TO SAY "the three things that do leave", AND THAT WAS THE DEFECT. Three was true
+     of a house with a box in it, back when a box was the only shape. It was never true of the
+     phone on its own — which is now how the public beta works — and it was not even true of the
+     box, which also talks to a weather service, a food database, a news source and your own mail
+     provider. A promise of completeness is worth exactly as much as its longest omission, so the
+     band no longer makes one: it shows the three that matter most and sends you to the list. -->
 <section class="privacy">
   <div class="wrap">
     <div class="eyebrow">Privacy</div>
-    <h2>There is no cloud. There is your box.</h2>
+    <h2>No cloud account. And we name every place your words go.</h2>
     <p class="lede">
-      Your messages, your mail, your calendar, what it remembers — all of it on the Pi on your
-      shelf, which you can unplug. Nothing comes back to us either: no telemetry, no analytics,
-      no crash reports. Three things do leave your house, and here they are.
+      With a box of your own: your messages, your mail, your calendar, what it remembers — all of
+      it on the Pi on your shelf, which you can unplug. Nothing comes back to us either: no
+      telemetry, no analytics, no crash reports. Some things do leave — the three below are the
+      ones that matter most, and the privacy page lists every one of them, including the sources
+      Ambrogio looks things up in and the accounts you choose to connect.
     </p>
 
     <div class="pcards">
       <div class="pcard">
         <h3>Claude, to think</h3>
         <p>
-          What you ask, and whatever it needs to answer. On <b>your own</b> subscription, under
-          your own terms with Anthropic — and from the box, never from the app.
+          What you ask, and whatever it needs to answer. Sent by the box, on <b>your own</b>
+          subscription, under your own terms with Anthropic.
         </p>
       </div>
       <div class="pcard">
@@ -266,10 +279,26 @@ sudo python3 flash_box.py --flash</code>
       </div>
     </div>
 
+    <div class="note">
+      <h3>Without a box, it is not the same</h3>
+      <p>
+        The iPhone beta works without a Pi, and then there is no box to keep anything. Unless you
+        supply your own Anthropic key, what you ask goes to <b>ai-gateway.iotexlab.io</b> — a
+        server we run — and from there to Anthropic. It holds the conversation so it can carry it
+        on, and counts what each phone uses. The app never sends your name — only the phone
+        model, the language and a code it made up. If someone invited you personally, the label
+        they typed when inviting you is on your row, and that is often a first name.
+        <a href="https://github.com/simonerom/Ambrogio-releases/issues">Ask</a> and your token is
+        revoked; put in your own key, or set up a box, and this server is out of the path
+        entirely.
+      </p>
+    </div>
+
     <p class="pmore">
       <a href="./privacy.html">What each one carries, in detail →</a>
     </p>
-  </section>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -377,8 +406,10 @@ sudo python3 flash_box.py --flash</code>
       <div class="app">
         <div class="plat">iPhone</div>
         <div class="state open">Open beta · TestFlight</div>
-        <p>Distributed through TestFlight, Apple's free beta channel — no invite needed, just
-          the link.</p>
+        <p>Distributed through TestFlight, Apple's free beta channel — the link is enough to
+          install it. To use it without a box you also need an invite code for the shared
+          server, because it answers on our subscription; with your own Anthropic key, or your
+          own box, you don't.</p>
         <a class="btn" href="https://testflight.apple.com/join/kft9Hhv3">Join the beta</a>
       </div>
 
