@@ -146,10 +146,20 @@
       <p>
         That server keeps your conversation so it can carry it on from one message to the next,
         and it keeps it <b>as a file on its disk</b>, not only in memory: one transcript per
-        conversation, holding what you wrote and what came back. Today those transcripts are not
-        deleted on a schedule — they stay until someone removes them, and the oldest ones on the
-        server go back to the day it opened. That is the plainest thing this page can say about
-        it, and if it changes for the better this page changes with it. It also records, per
+        conversation, holding what you wrote and what came back. It is kept for one reason, and
+        the reason has a limit: after ten minutes of silence the server lets your conversation's
+        process go, and the file is what lets the next message continue it instead of re-sending
+        and re-paying for everything said so far. There is no version of this that keeps the
+        continuity without the file — the toolkit underneath is explicit that a session which is
+        not written down cannot be resumed.
+      </p>
+      <p>
+        So it is kept, and not forever: a conversation is <b>deleted seven days after its last
+        message</b>, together with the record that would have let the server pick it up again. And
+        since a restart makes the older ones impossible to continue in any case, those are cleared
+        out when the server next starts — a few minutes after, not the same instant, because a
+        file still being written to might belong to a process that has not finished shutting down.
+        It also records, per
         phone: a token it issued you, how many tokens of model capacity you have used today, and
         when it last saw you — so that one person cannot use up the shared allowance. The app never sends your name, your email or any Apple
         identifier — the label it registers with is the phone model, the language, and a code the
@@ -163,9 +173,8 @@
         supported: put your own Anthropic API key in the app, and it talks to Anthropic directly;
         or set up a box, and it talks to your box. Both take this server out of the path
         <i>for answering you</i>; the public lookups in the next item are made by the app itself
-        and are unaffected by either. To have the token this server issued you revoked, or your
-        row and transcripts deleted,
-        <a href="https://github.com/simonerom/Ambrogio-releases/issues">ask</a>.
+        and are unaffected by either. To have the token this server issued you revoked, or your row
+        deleted, <a href="https://github.com/simonerom/Ambrogio-releases/issues">ask</a>.
       </p>
     </li>
     <li>
@@ -306,14 +315,22 @@
       row itself (its id, the phone-model label, the dates) and the running count of what it
       used.</li>
     <li><b>Deleting the row</b> removes that record.</li>
-    <li>Two things survive both of those: the <b>transcripts</b> described above, and a short
-      <b>usage trace</b> — when your token was last seen, and a session fingerprint the server
-      keeps to match a conversation back to its process. Neither is pruned on a schedule today.</li>
+    <li>A short <b>usage trace</b> outlives both: how much your token spent today, and when it was
+      last seen. Deleting your row now takes that with it.</li>
+    <li>The <b>transcripts</b> described above are not filed under your name — the server has no
+      index from a person to their conversations, and building one would mean knowing more about
+      you, not less. They go on their own clock: seven days after a conversation's last message,
+      or sooner when the server restarts.</li>
+    <li>Alongside each one the server keeps a fingerprint used to recognise a conversation it has
+      seen before. That part is hashes, not text. Stored beside it are the instructions the app
+      sends with every question — the app's own preamble and your language setting, not anything
+      you typed. Both go on the same seven days.</li>
   </ul>
   <p class="col">
-    Ask for any or all of it and it is done by hand. There is no self-service button, no
-    automatic expiry, and saying otherwise would be the easiest lie on this page. If that
-    changes, it changes here first.
+    Ask, and your token is revoked and your row and its usage trace removed — by hand, there is no
+    self-service button. Conversations are the one thing that cannot be picked out for one person,
+    so those go by the clock above. Saying otherwise would be the easiest lie on this page, and if
+    any of it changes, it changes here first.
   </p>
 
   <h2>What the app asks your phone for</h2>
