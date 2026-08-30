@@ -38,6 +38,8 @@
   header{background:var(--livrea); color:var(--on-livrea); padding-block:clamp(28px,6vw,54px)}
   header a{color:var(--on-livrea); opacity:.85}
   header h1{color:var(--on-livrea)}
+  .eyebrow a.home{color:inherit; text-decoration:none; border-bottom:1px solid transparent}
+  .eyebrow a.home:hover{border-bottom-color:currentColor}
   .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
            opacity:.75; margin-bottom:.9em}
   .lede{font-size:clamp(18px,2.4vw,21px); opacity:.93; margin-top:.7em; max-width:var(--measure)}
@@ -68,7 +70,10 @@
 
 <header>
   <div class="wrap col">
-    <p class="eyebrow">Ambrogio</p>
+    <!-- ⚠ LA VIA DI RITORNO, e sta in cima perche' e' li' che si cerca. Un link alla home
+         c'era gia', ma nel footer: in fondo a una pagina lunga come questa, per chi voleva
+         tornare indietro era come se non ci fosse. -->
+    <p class="eyebrow"><a class="home" href="./">&larr; Ambrogio</a></p>
     <h1>Privacy</h1>
     <p class="lede">
       Ambrogio runs on a small computer you own, in your house. There is no account to create and
