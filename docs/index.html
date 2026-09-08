@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ambrogio — a household assistant that lives in your house</title>
-<meta name="description" content="A self-hosted assistant for your family, running on a Raspberry Pi you own. It reads your email, keeps your calendar, runs your devices — and everything it knows lives on that box. During the iPhone beta you can also run it without one; the privacy page names what changes.">
+<title>Ambrogio — a household assistant on your phone, and in your house</title>
+<meta name="description" content="An assistant for your family that starts on your iPhone — it thinks with Claude, remembers, keeps your diet, projects, documents and calendar — and moves into a Raspberry Pi you own when you want the whole house in on it: mail, calendar, devices, and everything it knows kept on that box.">
 <meta property="og:title" content="Ambrogio">
-<meta property="og:description" content="A household assistant on a Raspberry Pi you own. No account to create; your data lives on that box. Trying the iPhone beta without a Pi? We name every place your words go.">
+<meta property="og:description" content="A household assistant that starts on your iPhone and moves into a Raspberry Pi you own. No account to create. We name every place your words go.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2324513B'/><circle cx='16' cy='13' r='4.6' fill='%23F0F4EF'/><path d='M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z' fill='%23A8823E'/></svg>">
 
@@ -61,8 +61,20 @@
   }
   .pitch b{color:var(--on-livrea); font-weight:600}
 
-  /* ---------- the copy-paste command: the primary action ---------- */
+  /* ---------- the two doors: the phone first, the box second ---------- */
+  .cta{margin-top:clamp(30px,6vw,42px); display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+  .cta .btn{margin-top:0}
+  .hero .btn{background:var(--ottone); color:#1A2E22; font-size:16.5px; padding:13px 22px}
+  .hero .btn:hover{background:#C29A4E}
+  .hero .btn.ghost{background:transparent; color:var(--on-livrea); border:1.5px solid rgba(240,244,239,.45)}
+  .hero .btn.ghost:hover{background:rgba(240,244,239,.08); border-color:rgba(240,244,239,.7)}
+  .cta-note{margin-top:14px; max-width:var(--measure); font-size:14.5px; color:#B8CCBF; line-height:1.55}
+  .cta-note a{color:var(--ottone); text-decoration-thickness:1px; text-underline-offset:3px}
+
+  /* ---------- the copy-paste command: the box's own first step ---------- */
   .cmd{margin-top:clamp(30px,6vw,42px); max-width:760px}
+  section .cmd{margin-top:clamp(24px,4vw,32px)}
+  section .cmd-note{color:var(--muted)}
   .cmd-label{
     font-size:12px; letter-spacing:.12em; text-transform:uppercase;
     color:var(--ottone); font-weight:700; margin-bottom:9px;
@@ -181,6 +193,16 @@
   .app .state.none{color:var(--muted)}
   .app p{margin-top:10px; font-size:15px; color:var(--muted); flex:1; line-height:1.55}
 
+  /* ---------- what the phone does alone, and what the box adds ---------- */
+  .split{margin-top:clamp(26px,4vw,36px); display:grid; gap:14px}
+  @media (min-width:760px){ .split{grid-template-columns:repeat(2,1fr)} }
+  .half{background:var(--panel); border:1px solid var(--line); border-radius:13px; padding:22px 24px}
+  .half.box{border-color:#CFDDD2; background:var(--livrea-tint)}
+  .half h3{font-size:17px}
+  .half ul{margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:15.5px; line-height:1.6}
+  .half li{margin-top:3px}
+  .half .sub{margin-top:12px; font-size:14.5px; color:var(--muted); line-height:1.55}
+
   footer{padding-block:44px 56px; color:var(--muted); font-size:15px}
   footer .links{display:flex; flex-wrap:wrap; gap:10px 26px; margin-bottom:18px}
   footer a{color:var(--livrea); font-weight:600; text-decoration-thickness:1px; text-underline-offset:3px}
@@ -203,31 +225,26 @@
     <h1>Hi, I'm Ambrogio.</h1>
 
     <p class="pitch">
-      I'm a household assistant, and I live in your house — on a Raspberry Pi on your own
-      shelf. I read the family's email, keep the calendar, drive the lights, and remember
-      what matters. <b>Everything I know stays on that box</b>: no account to create, no
-      dashboard in someone else's data centre, no remote login left open. I think with
-      Claude, on your own subscription. You flash a card, plug it in, and say hello.
+      I'm a household assistant. Start with me on your iPhone: I think with Claude, remember
+      what you tell me, keep your diet, your projects and your documents, read your calendar,
+      and answer when you say &ldquo;Hey Siri&rdquo;. <b>No account to create.</b>
       <br><br>
-      Don't have a Pi yet? The iPhone app also runs on its own during the beta — fewer
-      things, and your questions pass through a server I run rather than one you own.
-      <a href="./privacy.html">The privacy page says exactly what that changes.</a>
+      Put a Raspberry Pi on your shelf and I move in: then I read the family's email, keep the
+      house's calendar, drive the lights, and work while your phone is in your pocket — and
+      <b>everything I know stays on that box</b>, which you can unplug. On the phone alone,
+      your questions pass through a server I run instead;
+      <a href="./privacy.html">the privacy page says exactly what that changes.</a>
     </p>
 
-    <div class="cmd">
-      <div class="cmd-label">Start here — write a card (macOS &amp; Linux)</div>
-      <div class="cmd-box">
-        <code id="cmd">curl -LO https://github.com/simonerom/Ambrogio-releases/raw/main/tools/flash_box.py
-sudo python3 flash_box.py --flash</code>
-        <button class="copy" id="copy" type="button" aria-label="Copy the commands">Copy</button>
-      </div>
-      <p class="cmd-note">
-        One command downloads the latest image, flashes the card you pick, and writes your
-      claim code. On Windows, or if you'd rather use a graphical tool,
-        <a href="https://github.com/simonerom/Ambrogio-releases/blob/main/FLASHING.md">the flashing guide</a>
-        has the Raspberry&nbsp;Pi&nbsp;Imager route too.
-      </p>
+    <div class="cta">
+      <a class="btn" href="https://testflight.apple.com/join/kft9Hhv3">Get the iPhone beta</a>
+      <a class="btn ghost" href="#box">Set up a box</a>
     </div>
+    <p class="cta-note">
+      Free during the beta, through TestFlight. Without a box you'll need an invite code for the
+      shared server — it answers on my subscription — or your own Anthropic key. Android:
+      <a href="#apps">not yet</a>.
+    </p>
   </div>
 </header>
 
@@ -300,14 +317,94 @@ sudo python3 flash_box.py --flash</code>
   </div>
 </section>
 
-<section>
+<!-- THE PHONE COMES FIRST on the page because it comes first in a visitor's life: it is the
+     door with nothing to buy and nothing to flash. The list on the right is the honest half of
+     that: the things that only a box does are named, so nobody installs the beta expecting
+     their mail to be read. Both lists are copied from what the code actually ships — the phone's
+     tools (memory, calendar, weather, diet, projects, documents) and the box's — not from a
+     roadmap. -->
+<section id="apps">
   <div class="wrap">
-    <div class="eyebrow">Setting it up</div>
-    <h2>Four steps, about a minute of your time.</h2>
+    <div class="eyebrow">On your phone</div>
+    <h2>Start on the iPhone. Add a box when you want the house in on it.</h2>
+    <p class="lede">
+      The iPhone app is a whole Ambrogio on its own: you talk to it, it remembers, and the diet,
+      projects and documents live on the phone. A box is where it becomes the household's — the
+      family's mail and calendar, the devices, and an assistant that keeps working with the
+      phone in your pocket.
+    </p>
+
+    <div class="split">
+      <div class="half">
+        <h3>On the phone alone</h3>
+        <ul>
+          <li>Conversation with Claude — text, voice, photos, documents</li>
+          <li>Memory: it keeps what you tell it, and forgets on request</li>
+          <li>Diet diary, with Apple Health if you allow it</li>
+          <li>Projects: the house, the car, a pregnancy — facts and files, filed</li>
+          <li>Your phone's calendar: today's agenda, new events</li>
+          <li>Weather, and &ldquo;Hey Siri, Ambrogio&rdquo;</li>
+        </ul>
+        <p class="sub">Only while the app is open: a phone can't act on its own.</p>
+      </div>
+      <div class="half box">
+        <h3>With a box</h3>
+        <ul>
+          <li>Reads the family's email, and acts on it — with your say-so</li>
+          <li>The household's calendar, shared projects and memory</li>
+          <li>Lights, radiators, plugs</li>
+          <li>Tasks that run while everyone is asleep</li>
+          <li>Telegram, if you want it there too</li>
+          <li>Everything it knows on a Pi you can unplug</li>
+        </ul>
+        <p class="sub">The phone app attaches to the box; nothing to re-learn.</p>
+      </div>
+    </div>
+
+    <div class="apps">
+      <div class="app">
+        <div class="plat">iPhone</div>
+        <div class="state open">Open beta · TestFlight</div>
+        <p>Distributed through TestFlight, Apple's free beta channel — the link is enough to
+          install it. To use it without a box you also need an invite code for the shared
+          server, because it answers on our subscription; with your own Anthropic key, or your
+          own box, you don't.</p>
+        <a class="btn" href="https://testflight.apple.com/join/kft9Hhv3">Join the beta</a>
+      </div>
+
+      <div class="app soon">
+        <div class="plat">Android</div>
+        <div class="state none">Not yet</div>
+        <p>No Android app yet. Android phones can still use Ambrogio through a box's web
+          console, from any browser on the same network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="box">
+  <div class="wrap">
+    <div class="eyebrow">The box</div>
+    <h2>A Raspberry Pi on your shelf. Four steps, about a minute of your time.</h2>
     <p class="lede">
       You'll need a Raspberry Pi 4 or 5, a microSD card, and a computer to write it with.
       Writing the card takes about ten minutes and runs unattended — your part is about a minute.
     </p>
+
+    <div class="cmd">
+      <div class="cmd-label">Start here — write a card (macOS &amp; Linux)</div>
+      <div class="cmd-box">
+        <code id="cmd">curl -LO https://github.com/simonerom/Ambrogio-releases/raw/main/tools/flash_box.py
+sudo python3 flash_box.py --flash</code>
+        <button class="copy" id="copy" type="button" aria-label="Copy the commands">Copy</button>
+      </div>
+      <p class="cmd-note">
+        One command downloads the latest image, flashes the card you pick, and writes your
+        claim code. On Windows, or if you'd rather use a graphical tool,
+        <a href="https://github.com/simonerom/Ambrogio-releases/blob/main/FLASHING.md">the flashing guide</a>
+        has the Raspberry&nbsp;Pi&nbsp;Imager route too.
+      </p>
+    </div>
 
     <div class="steps">
       <div class="step">
@@ -387,37 +484,6 @@ sudo python3 flash_box.py --flash</code>
           Imager route.</p>
         <div class="meta" id="rel-meta">Loading the latest release…</div>
         <a class="btn ghost" id="img-dl" href="https://github.com/simonerom/Ambrogio-releases/releases/latest">Download the image</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">The app</div>
-    <h2>Set it up, then talk to it.</h2>
-    <p class="lede">
-      The app claims the box, walks you through setup, and is where you talk to Ambrogio
-      day to day. There's also a web console on the box, reachable from any browser on your
-      network.
-    </p>
-
-    <div class="apps">
-      <div class="app">
-        <div class="plat">iPhone</div>
-        <div class="state open">Open beta · TestFlight</div>
-        <p>Distributed through TestFlight, Apple's free beta channel — the link is enough to
-          install it. To use it without a box you also need an invite code for the shared
-          server, because it answers on our subscription; with your own Anthropic key, or your
-          own box, you don't.</p>
-        <a class="btn" href="https://testflight.apple.com/join/kft9Hhv3">Join the beta</a>
-      </div>
-
-      <div class="app soon">
-        <div class="plat">Android</div>
-        <div class="state none">Not yet</div>
-        <p>No Android app yet. Android phones can still use Ambrogio through the box's web
-          console, from any browser on the same network.</p>
       </div>
     </div>
   </div>
