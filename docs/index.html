@@ -6,21 +6,27 @@
 <title>Ambrogio — a household assistant on your phone, and in your house</title>
 <meta name="description" content="An assistant for your family that starts on your iPhone — it thinks with Claude, remembers, keeps your diet, projects, documents and calendar — and moves into a Raspberry Pi you own when you want the whole house in on it: mail, calendar, devices, and everything it knows kept on that box.">
 <meta property="og:title" content="Ambrogio">
-<meta property="og:description" content="A household assistant that starts on your iPhone and moves into a Raspberry Pi you own. No account to create. We name every place your words go.">
+<meta property="og:description" content="A household assistant that starts on your iPhone and moves into a Raspberry Pi you own. No account to create. I name every place your words go.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2324513B'/><circle cx='16' cy='13' r='4.6' fill='%23F0F4EF'/><path d='M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z' fill='%23A8823E'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%235B4DE8'/><circle cx='16' cy='13' r='4.6' fill='%23FFFFFF'/><path d='M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z' fill='%23D98324'/></svg>">
 
 <!-- No fonts CDN, no analytics, no trackers, no embeds — an appliance whose whole promise is
      "your data stays in your house" has no business phoning a font server on the reader's
-     behalf. System fonts + inline CSS, so the page is also instant on a phone. The ONE network
-     call is an optional fetch to api.github.com to show the current image's size (below); it's
-     GitHub's own release API, degrades gracefully if it's rate-limited, and sends nothing. -->
+     behalf. System fonts + inline CSS, so the page is also instant on a phone. The only network
+     calls are two optional fetches to api.github.com — the current image's size, and the star
+     count on the GitHub button; GitHub's own API, degrades gracefully if rate-limited, and
+     sends nothing about the reader. -->
 <style>
   :root{
-    /* The app's own palette (app/src/lib/theme.ts) — the butler's livery. Not re-invented here. */
-    --livrea:#24513B; --livrea-deep:#1A3B2B; --livrea-tint:#E8F0EA; --on-livrea:#F0F4EF;
-    --ottone:#A8823E; --ottone-tint:#F5EEDF;
-    --paper:#F7F8F5; --panel:#FFFFFF; --ink:#20261F; --muted:#68716A; --line:#DDE2DA;
+    /* The app's own palette (app/src/lib/theme.ts) — the butler's livery, now indigo, not
+       re-invented here. Same token names as the app, so a retune there is a retune here. */
+    --livrea:#5B4DE8; --livrea-deep:#3B2FA8; --livrea-soft:#8E83F5; --livrea-tint:#EDEBFE;
+    --livrea-border:#CFC9FA; --on-livrea:#FFFFFF;
+    --ottone:#D98324; --ottone-tint:#FDF1E1; --ottone-border:#EAD3B4; --ottone-ink:#6B4310;
+    --paper:#F6F7FB; --panel:#FFFFFF; --ink:#1A1B2E; --muted:#6B7089; --line:#E4E6F0;
+    /* The app's canvas: a wash from faint violet to almost white — behind the hero, as it is
+       behind every conversation on the phone. */
+    --canvas-top:#EFEDFC; --canvas-bottom:#FAFAFE;
 
     --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -41,13 +47,15 @@
   p{margin:0}
   a{color:inherit}
 
-  /* ---------- hero: the livery, worn ---------- */
+  /* ---------- hero: the app's canvas, worn ---------- */
   .hero{
-    background:var(--livrea); color:var(--on-livrea);
-    /* A brass hairline at the bottom — the button on the uniform, not a gradient. */
-    border-bottom:3px solid var(--ottone);
+    background:linear-gradient(180deg, var(--canvas-top), var(--canvas-bottom)); color:var(--ink);
+    /* A lavender hairline at the bottom, the same one the ghost buttons wear: the gold rule that
+       sat here read as a leftover between two violet surfaces (Simone, 2026-09-11). */
+    border-bottom:1px solid var(--livrea-border);
     padding-block: clamp(56px, 11vw, 104px) clamp(44px, 8vw, 76px);
   }
+  [hidden]{display:none !important}
   .brand{display:flex; align-items:center; gap:12px; margin-bottom:clamp(28px,6vw,44px)}
   .brand svg{width:34px; height:34px; display:block}
   .brand b{font-family:var(--serif); font-size:20px; font-weight:600; letter-spacing:.01em}
@@ -57,19 +65,27 @@
   }
   .pitch{
     margin-top:22px; max-width:var(--measure);
-    font-size:clamp(17px, 2.3vw, 20.5px); line-height:1.55; color:#CFDDD2;
+    font-size:clamp(17px, 2.3vw, 20.5px); line-height:1.55; color:var(--ink);
   }
-  .pitch b{color:var(--on-livrea); font-weight:600}
+  .pitch b{color:var(--livrea-deep); font-weight:600}
+  .pitch a{color:var(--livrea); text-decoration-thickness:1px; text-underline-offset:3px}
 
   /* ---------- the two doors: the phone first, the box second ---------- */
   .cta{margin-top:clamp(30px,6vw,42px); display:flex; flex-wrap:wrap; gap:12px; align-items:center}
   .cta .btn{margin-top:0}
-  .hero .btn{background:var(--ottone); color:#1A2E22; font-size:16.5px; padding:13px 22px}
-  .hero .btn:hover{background:#C29A4E}
-  .hero .btn.ghost{background:transparent; color:var(--on-livrea); border:1.5px solid rgba(240,244,239,.45)}
-  .hero .btn.ghost:hover{background:rgba(240,244,239,.08); border-color:rgba(240,244,239,.7)}
-  .cta-note{margin-top:14px; max-width:var(--measure); font-size:14.5px; color:#B8CCBF; line-height:1.55}
-  .cta-note a{color:var(--ottone); text-decoration-thickness:1px; text-underline-offset:3px}
+  .hero .btn{background:var(--livrea); color:var(--on-livrea); font-size:16.5px; padding:13px 22px}
+  .hero .btn:hover{background:var(--livrea-deep)}
+  .hero .btn.ghost{background:transparent; color:var(--livrea); border:1.5px solid var(--livrea-border)}
+  .hero .btn.ghost:hover{background:var(--livrea-tint); border-color:var(--livrea-soft)}
+  /* The GitHub button: a star, the word, and the live count as a small pill. */
+  .btn.gh{display:inline-flex; align-items:center; gap:9px}
+  .btn.gh svg{width:17px; height:17px; display:block; fill:currentColor}
+  .btn.gh .count{
+    font-family:var(--mono); font-size:13px; font-weight:700; line-height:1;
+    background:var(--livrea-tint); color:var(--livrea-deep); padding:5px 9px; border-radius:999px;
+  }
+  .cta-note{margin-top:14px; max-width:var(--measure); font-size:14.5px; color:var(--muted); line-height:1.55}
+  .cta-note a{color:var(--livrea); text-decoration-thickness:1px; text-underline-offset:3px}
 
   /* ---------- the copy-paste command: the box's own first step ---------- */
   .cmd{margin-top:clamp(30px,6vw,42px); max-width:760px}
@@ -77,33 +93,33 @@
   section .cmd-note{color:var(--muted)}
   .cmd-label{
     font-size:12px; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--ottone); font-weight:700; margin-bottom:9px;
+    color:var(--livrea); font-weight:700; margin-bottom:9px;
   }
   .cmd-box{
     display:flex; align-items:stretch; gap:0;
-    background:var(--livrea-deep); border:1px solid rgba(240,244,239,.16); border-radius:11px;
+    background:var(--ink); border:1px solid rgba(255,255,255,.12); border-radius:11px;
     overflow:hidden;
   }
   .cmd-box code{
-    font-family:var(--mono); font-size:13.5px; line-height:1.5; color:#DCE7DF;
+    font-family:var(--mono); font-size:13.5px; line-height:1.5; color:var(--line);
     padding:15px 16px; overflow-x:auto; white-space:pre; flex:1; min-width:0;
   }
   .copy{
-    flex:none; border:0; border-left:1px solid rgba(240,244,239,.16);
+    flex:none; border:0; border-left:1px solid rgba(255,255,255,.12);
     background:transparent; color:var(--ottone);
     font-family:var(--sans); font-size:13.5px; font-weight:700; letter-spacing:.02em;
     padding-inline:18px; cursor:pointer; transition:background .15s, color .15s;
   }
-  .copy:hover{background:rgba(168,130,62,.14)}
-  .copy[data-done="1"]{color:#9FD6B4}
-  .cmd-note{margin-top:11px; font-size:14.5px; color:#B8CCBF}
-  .cmd-note a{color:var(--ottone); text-decoration-thickness:1px; text-underline-offset:3px}
+  .copy:hover{background:rgba(217,131,36,.16)}
+  .copy[data-done="1"]{color:#7FE0C3}
+  .cmd-note{margin-top:11px; font-size:14.5px; color:var(--muted)}
+  .cmd-note a{color:var(--livrea); text-decoration-thickness:1px; text-underline-offset:3px}
 
   /* ---------- sections ---------- */
   section{padding-block:clamp(52px, 9vw, 88px); border-bottom:1px solid var(--line)}
   .eyebrow{
     font-size:12px; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--ottone); font-weight:700; margin-bottom:12px;
+    color:var(--livrea); font-weight:700; margin-bottom:12px;
   }
   section h2{font-size:clamp(26px,4vw,36px); line-height:1.18; letter-spacing:-.01em; max-width:20ch}
   .lede{margin-top:14px; max-width:var(--measure); color:var(--muted); font-size:17.5px}
@@ -131,14 +147,14 @@
   /* ---------- the trust note: brass, because it is the one thing to read twice ---------- */
   .note{
     margin-top:clamp(28px,5vw,38px); background:var(--ottone-tint);
-    border:1px solid #E6D4B0; border-left:4px solid var(--ottone);
+    border:1px solid var(--ottone-border); border-left:4px solid var(--ottone);
     border-radius:11px; padding:20px 22px; max-width:var(--measure);
   }
   .note h3{font-size:17.5px; margin-bottom:7px}
-  .note p{font-size:15.5px; color:#5C4A28; line-height:1.55}
+  .note p{font-size:15.5px; color:var(--ottone-ink); line-height:1.55}
   .note code{
-    font-family:var(--mono); font-size:13px; background:#FBF4E4;
-    border:1px solid #E6D4B0; border-radius:5px; padding:1px 5px; color:#5C4A28;
+    font-family:var(--mono); font-size:13px; background:#FFF7EA;
+    border:1px solid var(--ottone-border); border-radius:5px; padding:1px 5px; color:var(--ottone-ink);
     white-space:nowrap;
   }
 
@@ -197,7 +213,7 @@
   .split{margin-top:clamp(26px,4vw,36px); display:grid; gap:14px}
   @media (min-width:760px){ .split{grid-template-columns:repeat(2,1fr)} }
   .half{background:var(--panel); border:1px solid var(--line); border-radius:13px; padding:22px 24px}
-  .half.box{border-color:#CFDDD2; background:var(--livrea-tint)}
+  .half.box{border-color:var(--livrea-border); background:var(--livrea-tint)}
   .half h3{font-size:17px}
   .half ul{margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:15.5px; line-height:1.6}
   .half li{margin-top:3px}
@@ -215,30 +231,41 @@
   <div class="wrap">
     <div class="brand">
       <svg viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="7" fill="#1A3B2B"/>
-        <circle cx="16" cy="13" r="4.6" fill="#F0F4EF"/>
-        <path d="M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z" fill="#A8823E"/>
+        <rect width="32" height="32" rx="7" fill="#5B4DE8"/>
+        <circle cx="16" cy="13" r="4.6" fill="#FFFFFF"/>
+        <path d="M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z" fill="#D98324"/>
       </svg>
       <b>Ambrogio</b>
     </div>
 
-    <h1>Hi, I'm Ambrogio.</h1>
+    <h1>Hey, this is Ambrogio.</h1>
 
     <p class="pitch">
-      I'm a household assistant. Start with me on your iPhone: I think with Claude, remember
-      what you tell me, keep your diet, your projects and your documents, read your calendar,
-      and answer when you say &ldquo;Hey Siri&rdquo;. <b>No account to create.</b>
+      I built Ambrogio for my own family, because I wanted an assistant that lives in our house
+      instead of in somebody's cloud. It thinks with <a href="https://claude.ai" target="_blank">Claude</a>,
+      remembers what you tell it, tracks your diet, keeps your projects and documents in order,
+      reads your calendar and email, and answers when you say &ldquo;Hey Siri&rdquo;. Start with it
+      on your iPhone. <b>No account to create.</b>
       <br><br>
-      Put a Raspberry Pi on your shelf and I move in: then I read the family's email, keep the
-      house's calendar, drive the lights, and work while your phone is in your pocket — and
-      <b>everything I know stays on that box</b>, which you can unplug. On the phone alone,
-      your questions pass through a server I run instead;
+      Put a <a href="https://www.raspberrypi.com" target="_blank">Raspberry Pi</a> on your shelf and Ambrogio moves in:
+      it reads the family's email, keeps the house's calendar, drives the home automation, and keeps
+      working while your phone is in your pocket — and <b>everything it knows stays on that box</b>,
+      which you can unplug. On the phone alone, bring your own Claude subscription and it answers
+      straight from Anthropic; use a beta tester invite instead and
+      <strong>your questions pass through a server I run</strong> —
       <a href="./privacy.html">the privacy page says exactly what that changes.</a>
+      <br><br>
+      It's an open beta, and I'm looking for people who'd like to help make it more useful.
     </p>
 
     <div class="cta">
       <a class="btn" href="https://testflight.apple.com/join/kft9Hhv3">Get the iPhone beta</a>
       <a class="btn ghost" href="#box">Set up a box</a>
+      <a class="btn ghost gh" id="gh-star" href="https://github.com/simonerom/Ambrogio-releases" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+        Star on GitHub
+        <span class="count" id="gh-count" hidden></span>
+      </a>
     </div>
     <p class="cta-note">
       Free during the beta, through TestFlight. Without a box you'll need an invite code for the
@@ -262,10 +289,10 @@
 <section class="privacy">
   <div class="wrap">
     <div class="eyebrow">Privacy</div>
-    <h2>No cloud account. And we name every place your words go.</h2>
+    <h2>No cloud account. And I name every place your words go.</h2>
     <p class="lede">
       With a box of your own: your messages, your mail, your calendar, what it remembers — all of
-      it on the Pi on your shelf, which you can unplug. Nothing comes back to us either: no
+      it on the Pi on your shelf, which you can unplug. Nothing comes back to me either: no
       telemetry, no analytics, no crash reports. Some things do leave — the three below are the
       ones that matter most, and the privacy page lists every one of them, including the sources
       Ambrogio looks things up in and the accounts you choose to connect.
@@ -300,11 +327,11 @@
       <h3>Without a box, it is not the same</h3>
       <p>
         The iPhone beta works without a Pi, and then there is no box to keep anything. Unless you
-        supply your own Anthropic key, what you ask goes to <b>ai-gateway.iotexlab.io</b> — a
-        server we run — and from there to Anthropic. It holds the conversation so it can carry it
+        supply your own Anthropic key, what you ask goes to <b>ai-gateway.sromano.com</b> — a
+        server I run — and from there to Anthropic. It holds the conversation so it can carry it
         on, and counts what each phone uses. The app never sends your name — only the phone
-        model, the language and a code it made up. If someone invited you personally, the label
-        they typed when inviting you is on your row, and that is often a first name.
+        model, the language and a code it made up. If I invited you personally, the label
+        I typed when inviting you is on your row, and that is often a first name.
         <a href="https://github.com/simonerom/Ambrogio-releases/issues">Ask</a> and your token is
         revoked; put in your own key, or set up a box, and this server is out of the path
         entirely.
@@ -367,7 +394,7 @@
         <div class="state open">Open beta · TestFlight</div>
         <p>Distributed through TestFlight, Apple's free beta channel — the link is enough to
           install it. To use it without a box you also need an invite code for the shared
-          server, because it answers on our subscription; with your own Anthropic key, or your
+          server, because it answers on my subscription; with your own Anthropic key, or your
           own box, you don't.</p>
         <a class="btn" href="https://testflight.apple.com/join/kft9Hhv3">Join the beta</a>
       </div>
@@ -537,6 +564,22 @@ sudo python3 flash_box.py --flash</code>
       .catch(function () {
         meta.textContent = 'Pick the newest .img.xz on the releases page';
       });
+  })();
+
+  // The star count on the GitHub button. Same API, same rules: optional, and the button is a
+  // plain link to the repository whether or not the number arrives.
+  (function () {
+    var count = document.getElementById('gh-count');
+    if (!count) return;
+    fetch('https://api.github.com/repos/simonerom/Ambrogio-releases')
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (repo) {
+        var n = repo.stargazers_count;
+        if (typeof n !== 'number') throw 0;
+        count.textContent = n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n);
+        count.hidden = false;
+      })
+      .catch(function () { /* no number, still a link */ });
   })();
 </script>
 </body>

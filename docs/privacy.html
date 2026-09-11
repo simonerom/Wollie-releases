@@ -4,19 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy — Ambrogio</title>
-<meta name="description" content="Ambrogio runs on a box you own — or, during the iPhone beta, on a server the developer runs. This page says exactly what leaves, where it goes, and who can see it.">
+<meta name="description" content="Ambrogio runs on a box you own — or, during the iPhone beta, on a server I run myself. This page says exactly what leaves, where it goes, and who can see it.">
 <meta property="og:title" content="Ambrogio — Privacy">
-<meta property="og:description" content="What leaves, and why. With a box of your own, nothing reaches the developer. During the iPhone beta without a box, your questions pass through a server the developer runs — named here.">
+<meta property="og:description" content="What leaves, and why. With a box of your own, nothing reaches me. During the iPhone beta without a box, your questions pass through a server I run — named here.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2324513B'/><circle cx='16' cy='13' r='4.6' fill='%23F0F4EF'/><path d='M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z' fill='%23A8823E'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%235B4DE8'/><circle cx='16' cy='13' r='4.6' fill='%23FFFFFF'/><path d='M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z' fill='%23D98324'/></svg>">
 
 <!-- Same rules as the landing page: no fonts CDN, no analytics, no trackers, no embeds.
      This page makes ZERO network calls. -->
 <style>
   :root{
-    --livrea:#24513B; --livrea-deep:#1A3B2B; --livrea-tint:#E8F0EA; --on-livrea:#F0F4EF;
-    --ottone:#A8823E; --ottone-tint:#F5EEDF;
-    --paper:#F7F8F5; --panel:#FFFFFF; --ink:#20261F; --muted:#68716A; --line:#DDE2DA;
+    /* The app's palette (app/src/lib/theme.ts), same token names — indigo, gold, cool neutrals. */
+    --livrea:#5B4DE8; --livrea-deep:#3B2FA8; --livrea-soft:#8E83F5; --livrea-tint:#EDEBFE;
+    --livrea-border:#CFC9FA; --on-livrea:#FFFFFF;
+    --ottone:#D98324; --ottone-tint:#FDF1E1;
+    --paper:#F6F7FB; --panel:#FFFFFF; --ink:#1A1B2E; --muted:#6B7089; --line:#E4E6F0;
+    --canvas-top:#EFEDFC; --canvas-bottom:#FAFAFE;
     --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
@@ -35,14 +38,15 @@
   h3{font-size:18px; margin-top:1.8em; margin-bottom:.35em}
   p{margin:0 0 1em}
   a{color:var(--livrea)}
-  header{background:var(--livrea); color:var(--on-livrea); padding-block:clamp(28px,6vw,54px)}
-  header a{color:var(--on-livrea); opacity:.85}
-  header h1{color:var(--on-livrea)}
+  header{background:linear-gradient(180deg, var(--canvas-top), var(--canvas-bottom)); color:var(--ink);
+         border-bottom:1px solid var(--livrea-border); padding-block:clamp(28px,6vw,54px)}
+  header a{color:var(--livrea)}
+  header h1{color:var(--ink)}
   .eyebrow a.home{color:inherit; text-decoration:none; border-bottom:1px solid transparent}
   .eyebrow a.home:hover{border-bottom-color:currentColor}
   .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-           opacity:.75; margin-bottom:.9em}
-  .lede{font-size:clamp(18px,2.4vw,21px); opacity:.93; margin-top:.7em; max-width:var(--measure)}
+           color:var(--muted); margin-bottom:.9em}
+  .lede{font-size:clamp(18px,2.4vw,21px); color:var(--ink); opacity:.9; margin-top:.7em; max-width:var(--measure)}
   main{padding-block:clamp(30px,6vw,56px)}
   .card{background:var(--panel); border:1px solid var(--line); border-radius:14px;
         padding:clamp(18px,3.4vw,26px); margin:1.4em 0; max-width:var(--measure)}
@@ -70,13 +74,10 @@
 
 <header>
   <div class="wrap col">
-    <!-- ⚠ LA VIA DI RITORNO, e sta in cima perche' e' li' che si cerca. Un link alla home
-         c'era gia', ma nel footer: in fondo a una pagina lunga come questa, per chi voleva
-         tornare indietro era come se non ci fosse. -->
     <p class="eyebrow"><a class="home" href="./">&larr; Ambrogio</a></p>
     <h1>Privacy</h1>
     <p class="lede">
-      Ambrogio runs on a small computer you own, in your house. There is no account to create and
+      Ambrogio runs on your smartphone, or on a small computer you own, in your house. There is no account to create and
       no dashboard in someone else's data centre. This page says exactly what leaves your house,
       and why — including the parts that do.
     </p>
@@ -88,18 +89,28 @@
   <div class="card">
     <h3>The short version</h3>
     <p>
-      <b>There are two ways to run Ambrogio, and they are not the same for your privacy.</b>
+      <b>There are three ways to run Ambrogio, and they are not the same for your privacy.</b>
     </p>
     <p>
-      <b>With a box of your own</b> — the Raspberry Pi you flashed — your data lives on it, and
-      the developer of Ambrogio receives <b>nothing</b>: no telemetry, no crash reports, no
-      analytics, no copy of your messages. There is nowhere for us to look.
+      <b>With the iPhone app on its own, using a beta-tester invite</b> — the way to try Ambrogio
+      right now if you don't have a Claude subscription of your own. Your questions travel to a
+      server I run, and from there to Anthropic. That server exists only so you can test the beta
+      without a subscription of your own, but it does see what you send it. It's named below,
+      with exactly what it keeps.
     </p>
     <p>
-      <b>With the iPhone app on its own</b>, which is how the current beta works if you have no
-      box, there is no box to hold anything — so your questions travel to a server the developer
-      runs, and from there to Anthropic. That server sees what you send it. It is named below,
-      with what it keeps.
+      <b>With the iPhone app on its own, using your own Claude subscription</b> — or an Anthropic
+      API key, or any endpoint that speaks the same Messages API shape. That includes a capable
+      open-weight model you run yourself — Qwen, DeepSeek, GLM and Kimi are today's most credible
+      options, usually reached through a small proxy that translates to that shape — if you'd
+      rather not depend on Anthropic at all. With Anthropic, your questions travel directly to
+      them, never through anything I run. With your own local model, they never leave your
+      device.
+    </p>
+    <p>
+      <b>With a box of your own</b> — the Raspberry Pi you flashed — your data lives on it, and I
+      receive <b>nothing</b>: no telemetry, no crash reports, no analytics, no copy of your
+      messages. There is nowhere for me to look.
     </p>
     <p>
       Everything that leaves is listed further down, by name. Nothing is left out because it was
@@ -121,7 +132,7 @@
     <b>If you don't.</b> The app keeps your conversation and your entries on the phone itself,
     and there is no box in the picture. To answer you it has to reach a model, and unless you
     have supplied your own Anthropic key it does that through
-    <b>ai-gateway.iotexlab.io</b>, a server the developer of Ambrogio runs. Deleting the app
+    <b>ai-gateway.sromano.com</b>, a server I run myself. Deleting the app
     deletes what is on the phone; what that server holds is covered below.
   </p>
   <p class="col">
@@ -142,7 +153,7 @@
       <p>
         This is how the iPhone beta works unless you supply your own Anthropic key. What you
         type, and any photo or document you show it, goes to
-        <b>ai-gateway.iotexlab.io</b> — a server run by the developer of Ambrogio — and from
+        <b>ai-gateway.sromano.com</b> — a server I run myself — and from
         there to Anthropic. So does whatever Ambrogio looks up in order to answer: a meal you
         logged, a note, an event from your calendar. If you have connected Apple Health, asking
         about your diet carries the figures derived from it along the same path, because the
@@ -168,9 +179,9 @@
         phone: a token it issued you, how many tokens of model capacity you have used today, and
         when it last saw you — so that one person cannot use up the shared allowance. The app never sends your name, your email or any Apple
         identifier — the label it registers with is the phone model, the language, and a code the
-        app invents for itself. One exception, and it is worth knowing: if you were invited
-        personally rather than with a shared code, the label whoever invited you typed is stored
-        on your row, and that is often a first name. It answers on the developer's own Claude
+        app invents for itself. One exception, and it is worth knowing: if I invited you
+        personally rather than with a shared code, the label I typed is stored
+        on your row, and that is often a first name. It answers on my own Claude
         subscription, which is why there is an allowance at all.
       </p>
       <p>
@@ -190,7 +201,7 @@
         Anthropic's API to get an answer, along with whatever context that answer needs — which
         can include the content of an email you asked about, a file you sent, or notes it has
         saved for you. This is the relationship between you and Anthropic, under your own
-        credential and their terms; the developer of Ambrogio is not a party to it and never sees
+        credential and their terms; I am not a party to it and never see
         the traffic.
       </p>
       <p>
@@ -279,7 +290,7 @@
     Settings → Health → Data Access &amp; Devices. These figures are never used for advertising, marketing
     or profiling, and are never sold or shared with anyone. They are not put in iCloud by
     Ambrogio — though, like any app's data, whatever sits on the phone is included in an iPhone
-    backup if you have iCloud Backup switched on, which is Apple's setting and not ours. Where they are kept depends on which
+    backup if you have iCloud Backup switched on, which is Apple's setting and not mine. Where they are kept depends on which
     shape you are running: <b>with a box</b>, on the box, alongside the rest of your data;
     <b>without one</b>, on the phone, and nowhere else until you ask about them.
   </p>
@@ -380,7 +391,7 @@
     <a href="https://github.com/simonerom/Ambrogio-releases/issues">open an issue</a>.
   </p>
 
-  <p class="note">Last updated: 30 August 2026.</p>
+  <p class="note">Last updated: 11 September 2026.</p>
 
 </main>
 
