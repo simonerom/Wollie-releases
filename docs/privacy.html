@@ -122,7 +122,10 @@
   <p class="col">
     <b>If you have a box.</b> Everything Ambrogio knows — your messages, your email, your
     calendar, what it remembers about your household — is stored on the Raspberry Pi (or
-    equivalent computer) that you flashed and plugged in. At home the app talks to that box.
+    equivalent computer) that you flashed and plugged in. If you turn on <i>recall by
+    meaning</i> (Settings → Memory), each memory is also kept there as a list of numbers derived
+    from its text, so Ambrogio can find it by what it means and not only by the words it
+    contains; those numbers are computed on the box and stay on it. At home the app talks to that box.
     When you are away it reaches the box over your own private network (Tailscale); the traffic
     is encrypted end to end between your phone and your box. Deleting your data means deleting it
     from your box, or unplugging the box. Nobody has to approve that, and no copy survives
@@ -208,6 +211,18 @@
         <b>One exception worth knowing.</b> If your phone is paired to a box but cannot reach it
         — the &ldquo;away&rdquo; mode — the phone answers by itself, and those questions go
         through the gateway above, not through your box.
+      </p>
+    </li>
+    <li>
+      <b>Your box → a public model repository — once, if you turn on recall by meaning</b>
+      <p>
+        Finding memories by meaning needs a small language model on the box (about 130 MB). It
+        is not in the image: the box downloads it from Hugging Face, a public model repository,
+        the first time you turn the feature on, checks it against a fingerprint fixed in
+        Ambrogio's code, and keeps it. That download is a plain fetch of two public files: nothing
+        of yours goes along, and the only thing that host learns is that a download came from
+        your connection, as with any download. The model then runs on the box and never talks
+        to anyone.
       </p>
     </li>
     <li>
