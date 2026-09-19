@@ -392,13 +392,18 @@
     <li><b>Location</b> — for two things, and only while the app is open. During setup, iOS
       requires it before an app may join your box's own Wi-Fi network; nothing is read then.
       And, <b>only if you turn on "Share where I am"</b> in the app's Me tab (it is off unless
-      you do): the area you are in, <b>rounded to about a kilometre</b> — a town, never an
-      address — so Wollie can answer "what's the weather here?" or "what's nearby?". The town's
-      name comes from Apple's geocoding service, which your phone asks. With a box, that area
-      travels with each message you send and becomes part of that one question, which goes to
-      Claude like the rest of it; the box does not store it anywhere else. Without a box, the
-      phone reads it only when a question needs it. It is never kept in Wollie's memory unless
-      you ask for that, and turning the switch off forgets the last position at once.</li>
+      you do): the area you are in, <b>snapped to a grid of about a kilometre</b> — a town,
+      never an address — so Wollie can answer "what's the weather here?" or "what's nearby?".
+      The card under the switch shows exactly what Wollie is told. The town's name comes from
+      your phone's own geocoding service (Apple's, on an iPhone), which is asked about that
+      one-kilometre cell, not about your exact position. <b>With a box</b>, the area travels
+      with your messages to the box, which passes it to Claude when it is news — a new
+      conversation, or a different area — as part of that question. No separate record of
+      where you were is written; but what Wollie was told becomes part of that conversation,
+      and is kept and re-read with it like anything else you said, until you clear it.
+      <b>Without a box</b>, the phone reads it only when a question needs it, and the answer
+      becomes part of the conversation in the same way. It goes into Wollie's memories only
+      if you ask, and turning the switch off forgets the last position at once.</li>
   </ul>
 
   <h2>Everyone in the household</h2>
