@@ -234,7 +234,8 @@
       </p>
       <p>
         <b>Weather</b>: Open-Meteo (and its geocoding service, which receives the place name you
-        typed), and api.met.no. <b>Food</b>: Open Food Facts and the USDA food database, which
+        typed — or, if you share where you are and ask about "here", coordinates rounded to
+        about a kilometre), and api.met.no. <b>Food</b>: Open Food Facts and the USDA food database, which
         receive what you searched for. <b>News</b>: Google News, GNews and Hacker News.
         <b>Markets</b>: CoinGecko, Binance and Finnhub, which receive the symbol you asked about.
         The weather and food lookups happen from the app itself when you have no box; the rest
@@ -374,7 +375,7 @@
 
   <h2>What the app asks your phone for</h2>
   <p class="col">
-    Besides Apple Health, the app asks iOS for three things, each only when you first use the
+    Besides Apple Health, the app asks iOS for four things, each only when you first use the
     feature that needs it, and each refusable:
   </p>
   <ul class="plain">
@@ -388,6 +389,16 @@
       keyboard's dictation uses. The app tells you which of the two is happening.</li>
     <li><b>Camera and photo library</b> — only when you attach a photo or scan a document, and
       only for the file you pick.</li>
+    <li><b>Location</b> — for two things, and only while the app is open. During setup, iOS
+      requires it before an app may join your box's own Wi-Fi network; nothing is read then.
+      And, <b>only if you turn on "Share where I am"</b> in the app's Me tab (it is off unless
+      you do): the area you are in, <b>rounded to about a kilometre</b> — a town, never an
+      address — so Wollie can answer "what's the weather here?" or "what's nearby?". The town's
+      name comes from Apple's geocoding service, which your phone asks. With a box, that area
+      travels with each message you send and becomes part of that one question, which goes to
+      Claude like the rest of it; the box does not store it anywhere else. Without a box, the
+      phone reads it only when a question needs it. It is never kept in Wollie's memory unless
+      you ask for that, and turning the switch off forgets the last position at once.</li>
   </ul>
 
   <h2>Everyone in the household</h2>
@@ -414,7 +425,7 @@
     <a href="https://github.com/simonerom/Wollie-releases/issues">open an issue</a>.
   </p>
 
-  <p class="note">Last updated: 11 September 2026.</p>
+  <p class="note">Last updated: 19 September 2026.</p>
 
 </main>
 
