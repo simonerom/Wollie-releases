@@ -64,7 +64,7 @@ the script once to add the code.
 1. **Install Raspberry Pi Imager** — <https://www.raspberrypi.com/software/>.
 2. **Download the image**: from the
    [latest release](https://github.com/simonerom/Wollie-releases/releases/latest),
-   download `ambrogio-<version>.img.xz`.
+   download `wollie-<version>.img.xz`.
 3. **Write it**: open Raspberry Pi Imager, choose your Raspberry Pi model, then
    **Choose OS → Use custom** and pick the `.img.xz` you downloaded. Choose your **SD card**
    as the storage, and write. (There's no OS-customisation step — Wollie sets its own
@@ -87,11 +87,11 @@ However you wrote the card, the script prints something like:
 ```
 ====================================================
   Claim code:   K7PM-3XQR-VD     (type it as K7PM3XQRVD)
-  Setup Wi-Fi:  Ambrogio-9C41A7
+  Setup Wi-Fi:  Wollie-9C41A7
   The code is the box's claim code AND its setup Wi-Fi password.
 ====================================================
 
-  Printable code sheet:  ~/ambrogio-claim-codes/ambrogio-9C41A7-claim-code.html
+  Printable code sheet:  ~/wollie-claim-codes/wollie-9C41A7-claim-code.html
 ```
 
 **Print the code sheet and keep it.** Open that HTML file in a browser and print it (or Save
@@ -142,7 +142,7 @@ than asking you for a code that doesn't exist.
    - **Ethernet (simplest).** Plug the Pi into your router with a network cable. It picks up
      an address automatically and is on your network the moment it finishes booting.
    - **The box's own setup Wi-Fi.** With no cable, the box raises its **own** temporary
-     network — the one named on your code sheet (e.g. `Ambrogio-9C41A7`). It's not on your
+     network — the one named on your code sheet (e.g. `Wollie-9C41A7`). It's not on your
      home network yet; you'll connect your phone to it in the next step and hand over your
      home Wi-Fi from the app.
 
@@ -207,7 +207,7 @@ Option 1 verifies the image's checksum for you. If you downloaded the `.img.xz` 
 (Option 2) and want to confirm it's intact:
 
 ```
-sha256sum -c ambrogio-<version>.img.xz.sha256
+sha256sum -c wollie-<version>.img.xz.sha256
 ```
 
 A `... OK` line means the download matches the published checksum.

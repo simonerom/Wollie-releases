@@ -40,7 +40,7 @@ sudo python3 flash_box.py --flash
 ```
 
 **Windows, or prefer a GUI?** Use Raspberry Pi Imager: **Choose OS → Use custom** and pick the
-`ambrogio-<version>.img.xz` from the [latest release](https://github.com/simonerom/Wollie-releases/releases/latest),
+`wollie-<version>.img.xz` from the [latest release](https://github.com/simonerom/Wollie-releases/releases/latest),
 write it, then run `python3 flash_box.py` on the card to add the claim code.
 
 Either way, **don't skip the claim code**: a box flashed without one boots and joins your
@@ -67,8 +67,8 @@ The flashing script verifies the image's checksum for you. If you downloaded the
 by hand, every release includes a `.sha256` next to it — check it with:
 
 ```
-shasum -a 256 -c ambrogio-<version>.img.xz.sha256    # macOS
-sha256sum -c ambrogio-<version>.img.xz.sha256         # Linux
+shasum -a 256 -c wollie-<version>.img.xz.sha256    # macOS
+sha256sum -c wollie-<version>.img.xz.sha256         # Linux
 ```
 
 ## License
