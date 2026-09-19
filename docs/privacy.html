@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy — Ambrogio</title>
-<meta name="description" content="Ambrogio runs on a box you own — or, during the iPhone beta, on a server I run myself. This page says exactly what leaves, where it goes, and who can see it.">
-<meta property="og:title" content="Ambrogio — Privacy">
+<title>Privacy — Wollie</title>
+<meta name="description" content="Wollie runs on a box you own — or, during the iPhone beta, on a server I run myself. This page says exactly what leaves, where it goes, and who can see it.">
+<meta property="og:title" content="Wollie — Privacy">
 <meta property="og:description" content="What leaves, and why. With a box of your own, nothing reaches me. During the iPhone beta without a box, your questions pass through a server I run — named here.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%235B4DE8'/><circle cx='16' cy='13' r='4.6' fill='%23FFFFFF'/><path d='M7 27c1.6-5.2 5-7.8 9-7.8s7.4 2.6 9 7.8z' fill='%23D98324'/></svg>">
@@ -74,10 +74,10 @@
 
 <header>
   <div class="wrap col">
-    <p class="eyebrow"><a class="home" href="./">&larr; Ambrogio</a></p>
+    <p class="eyebrow"><a class="home" href="./">&larr; Wollie</a></p>
     <h1>Privacy</h1>
     <p class="lede">
-      Ambrogio runs on your smartphone, or on a small computer you own, in your house. There is no account to create and
+      Wollie runs on your smartphone, or on a small computer you own, in your house. There is no account to create and
       no dashboard in someone else's data centre. This page says exactly what leaves your house,
       and why — including the parts that do.
     </p>
@@ -89,10 +89,10 @@
   <div class="card">
     <h3>The short version</h3>
     <p>
-      <b>There are three ways to run Ambrogio, and they are not the same for your privacy.</b>
+      <b>There are three ways to run Wollie, and they are not the same for your privacy.</b>
     </p>
     <p>
-      <b>With the iPhone app on its own, using a beta-tester invite</b> — the way to try Ambrogio
+      <b>With the iPhone app on its own, using a beta-tester invite</b> — the way to try Wollie
       right now if you don't have a Claude subscription of your own. Your questions travel to a
       server I run, and from there to Anthropic. That server exists only so you can test the beta
       without a subscription of your own, but it does see what you send it. It's named below,
@@ -120,11 +120,11 @@
 
   <h2>Where your data actually is</h2>
   <p class="col">
-    <b>If you have a box.</b> Everything Ambrogio knows — your messages, your email, your
+    <b>If you have a box.</b> Everything Wollie knows — your messages, your email, your
     calendar, what it remembers about your household — is stored on the Raspberry Pi (or
     equivalent computer) that you flashed and plugged in. If you turn on <i>recall by
     meaning</i> (Settings → Memory), each memory is also kept there as a list of numbers derived
-    from its text, so Ambrogio can find it by what it means and not only by the words it
+    from its text, so Wollie can find it by what it means and not only by the words it
     contains; those numbers are computed on the box and stay on it. At home the app talks to that box.
     When you are away it reaches the box over your own private network (Tailscale); the traffic
     is encrypted end to end between your phone and your box. Deleting your data means deleting it
@@ -152,12 +152,12 @@
 
   <ul class="flow">
     <li>
-      <b>The app → Ambrogio's gateway → Anthropic — when you have no box</b>
+      <b>The app → Wollie's gateway → Anthropic — when you have no box</b>
       <p>
         This is how the iPhone beta works unless you supply your own Anthropic key. What you
         type, and any photo or document you show it, goes to
         <b>ai-gateway.sromano.com</b> — a server I run myself — and from
-        there to Anthropic. So does whatever Ambrogio looks up in order to answer: a meal you
+        there to Anthropic. So does whatever Wollie looks up in order to answer: a meal you
         logged, a note, an event from your calendar. If you have connected Apple Health, asking
         about your diet carries the figures derived from it along the same path, because the
         answer is computed from them.
@@ -193,14 +193,14 @@
         or set up a box, and it talks to your box. Both take this server out of the path
         <i>for answering you</i>; the public lookups in the next item are made by the app itself
         and are unaffected by either. To have the token this server issued you revoked, or your row
-        deleted, <a href="https://github.com/simonerom/Ambrogio-releases/issues">ask</a>.
+        deleted, <a href="https://github.com/simonerom/Wollie-releases/issues">ask</a>.
       </p>
     </li>
     <li>
       <b>Your box → Anthropic (Claude) — when you have one</b>
       <p>
-        Ambrogio thinks with Claude, using <b>your own</b> Claude subscription or API key, which
-        you provide during setup. When you talk to Ambrogio, the box sends the conversation to
+        Wollie thinks with Claude, using <b>your own</b> Claude subscription or API key, which
+        you provide during setup. When you talk to Wollie, the box sends the conversation to
         Anthropic's API to get an answer, along with whatever context that answer needs — which
         can include the content of an email you asked about, a file you sent, or notes it has
         saved for you. This is the relationship between you and Anthropic, under your own
@@ -219,14 +219,14 @@
         Finding memories by meaning needs a small language model on the box (about 130 MB). It
         is not in the image: the box downloads it from Hugging Face, a public model repository,
         the first time you turn the feature on, checks it against a fingerprint fixed in
-        Ambrogio's code, and keeps it. That download is a plain fetch of two public files: nothing
+        Wollie's code, and keeps it. That download is a plain fetch of two public files: nothing
         of yours goes along, and the only thing that host learns is that a download came from
         your connection, as with any download. The model then runs on the box and never talks
         to anyone.
       </p>
     </li>
     <li>
-      <b>Public sources Ambrogio looks things up in</b>
+      <b>Public sources Wollie looks things up in</b>
       <p>
         When you ask for something it has to fetch, the question — or the part of it that is the
         query — goes to the service that answers it. These carry what you asked, not who you are:
@@ -285,7 +285,7 @@
 
   <h2>Apple Health</h2>
   <p class="col">
-    If you choose to connect Apple Health, Ambrogio reads these specific things, and nothing else:
+    If you choose to connect Apple Health, Wollie reads these specific things, and nothing else:
   </p>
   <ul class="plain">
     <li><b>Active energy burned</b> and <b>resting energy burned</b>, per day — so the diet
@@ -295,16 +295,16 @@
     <li><b>Body mass</b> and <b>height</b> — so you don't have to type them.</li>
   </ul>
   <p class="col">
-    That is the whole list: five figures, and Ambrogio asks iOS for exactly those. It does not
+    That is the whole list: five figures, and Wollie asks iOS for exactly those. It does not
     read your biological sex, your date of birth, your workouts, your heart rate, your sleep or
     your clinical records.
   </p>
   <p class="col">
-    Ambrogio never writes anything to Apple Health. This is off until you turn it on, iOS asks you
+    Wollie never writes anything to Apple Health. This is off until you turn it on, iOS asks you
     separately before any of it is readable, and you can withdraw it at any time in
     Settings → Health → Data Access &amp; Devices. These figures are never used for advertising, marketing
     or profiling, and are never sold or shared with anyone. They are not put in iCloud by
-    Ambrogio — though, like any app's data, whatever sits on the phone is included in an iPhone
+    Wollie — though, like any app's data, whatever sits on the phone is included in an iPhone
     backup if you have iCloud Backup switched on, which is Apple's setting and not mine. Where they are kept depends on which
     shape you are running: <b>with a box</b>, on the box, alongside the rest of your data;
     <b>without one</b>, on the phone, and nowhere else until you ask about them.
@@ -312,13 +312,13 @@
   <div class="card">
     <h3>One thing to be aware of</h3>
     <p>
-      Ambrogio's answers are produced by Claude, so <b>asking about your diet sends these figures
+      Wollie's answers are produced by Claude, so <b>asking about your diet sends these figures
       along with the question</b> — not only asking about the numbers themselves. The daily target
       is computed from them, so any answer about what you ate carries them. Without a box they
       pass through the gateway named above on the way to Anthropic.
     </p>
     <p>
-      Nothing is sent on Ambrogio's own initiative: the arithmetic happens where the figures are.
+      Nothing is sent on Wollie's own initiative: the arithmetic happens where the figures are.
       If you would rather they never left, use the diet page and don't ask about it in chat.
     </p>
   </div>
@@ -378,7 +378,7 @@
     feature that needs it, and each refusable:
   </p>
   <ul class="plain">
-    <li><b>Calendar</b> — so Ambrogio can answer about your day. It reads events from
+    <li><b>Calendar</b> — so Wollie can answer about your day. It reads events from
       <b>every calendar account on the phone</b>, because that is how iOS exposes them: iCloud,
       Google, Exchange, any CalDAV account you added in Settings. An event only leaves the phone
       when it is part of an answer you asked for.</li>
@@ -392,10 +392,10 @@
 
   <h2>Everyone in the household</h2>
   <p class="col">
-    An Ambrogio box can serve several people, each with their own data and their own permissions.
+    A Wollie box can serve several people, each with their own data and their own permissions.
     Whoever set the box up administers it and can see that other members exist, what they are
     allowed to do, and anything explicitly shared with them — they cannot read another member's
-    private conversations or mail. If a child uses Ambrogio, the same applies, and the adult who
+    private conversations or mail. If a child uses Wollie, the same applies, and the adult who
     set the box up is responsible for what it is allowed to do.
   </p>
 
@@ -410,8 +410,8 @@
 
   <h2>Contact</h2>
   <p class="col">
-    Questions about this page, or about something Ambrogio does that you don't like:
-    <a href="https://github.com/simonerom/Ambrogio-releases/issues">open an issue</a>.
+    Questions about this page, or about something Wollie does that you don't like:
+    <a href="https://github.com/simonerom/Wollie-releases/issues">open an issue</a>.
   </p>
 
   <p class="note">Last updated: 11 September 2026.</p>
@@ -421,13 +421,13 @@
 <footer>
   <div class="wrap">
     <div class="links">
-      <a href="./">Ambrogio</a>
-      <a href="https://github.com/simonerom/Ambrogio-releases">GitHub</a>
-      <a href="https://github.com/simonerom/Ambrogio-releases/blob/main/FLASHING.md">Get started</a>
-      <a href="https://github.com/simonerom/Ambrogio-releases/blob/main/LICENSE.md">License</a>
+      <a href="./">Wollie</a>
+      <a href="https://github.com/simonerom/Wollie-releases">GitHub</a>
+      <a href="https://github.com/simonerom/Wollie-releases/blob/main/FLASHING.md">Get started</a>
+      <a href="https://github.com/simonerom/Wollie-releases/blob/main/LICENSE.md">License</a>
     </div>
     <p class="fine">
-      Ambrogio is released under the PolyForm Noncommercial 1.0.0 licence — free for personal,
+      Wollie is released under the PolyForm Noncommercial 1.0.0 licence — free for personal,
       family, hobby, educational and charitable use. It needs your own Claude subscription to think.
     </p>
   </div>

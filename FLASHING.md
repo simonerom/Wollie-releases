@@ -1,6 +1,6 @@
-# Flashing Ambrogio onto a Raspberry Pi
+# Flashing Wollie onto a Raspberry Pi
 
-This guide takes you from a blank SD card to a running Ambrogio box you've claimed from
+This guide takes you from a blank SD card to a running Wollie box you've claimed from
 the app. Your part takes about a minute; writing the card takes about ten more and runs
 unattended.
 
@@ -20,7 +20,7 @@ You'll need:
 - **Python 3** on your computer (both options below use it for the claim code). macOS and
   Linux have it already; on Windows install it from <https://www.python.org/downloads/>
   (tick "Add Python to PATH").
-- The **Ambrogio app** on your iPhone. It's in open beta:
+- The **Wollie app** on your iPhone. It's in open beta:
   **[install it via TestFlight](https://testflight.apple.com/join/kft9Hhv3)** (Apple's free
   TestFlight app handles it). No Android build yet — on Android you can still reach the
   box's web console in a browser after setup.
@@ -36,7 +36,7 @@ separate imager app to install, and nothing else to set up: it needs only stock 
 1. **Download the script** (anywhere — your Downloads folder is fine):
 
    ```
-   curl -LO https://github.com/simonerom/Ambrogio-releases/raw/main/tools/flash_box.py
+   curl -LO https://github.com/simonerom/Wollie-releases/raw/main/tools/flash_box.py
    ```
 
 2. **Put your SD card in the reader**, then run:
@@ -46,7 +46,7 @@ separate imager app to install, and nothing else to set up: it needs only stock 
    ```
 
    It needs `sudo` because writing a card is a low-level operation. Then it:
-   - downloads the newest Ambrogio image and **verifies its checksum**;
+   - downloads the newest Wollie image and **verifies its checksum**;
    - lists your **removable disks** and asks which one is the SD card (it never lists your
      internal disk);
    - **warns you before erasing** the card and waits for you to confirm;
@@ -63,11 +63,11 @@ the script once to add the code.
 
 1. **Install Raspberry Pi Imager** — <https://www.raspberrypi.com/software/>.
 2. **Download the image**: from the
-   [latest release](https://github.com/simonerom/Ambrogio-releases/releases/latest),
+   [latest release](https://github.com/simonerom/Wollie-releases/releases/latest),
    download `ambrogio-<version>.img.xz`.
 3. **Write it**: open Raspberry Pi Imager, choose your Raspberry Pi model, then
    **Choose OS → Use custom** and pick the `.img.xz` you downloaded. Choose your **SD card**
-   as the storage, and write. (There's no OS-customisation step — Ambrogio sets its own
+   as the storage, and write. (There's no OS-customisation step — Wollie sets its own
    hostname and accounts, and takes Wi-Fi from the app; just write the image as-is.)
 4. **Put the claim code on the card.** Leave the card in the reader. Download the script
    (as in Option 1, step 1) and run it with **no arguments**:
@@ -124,7 +124,7 @@ An unclaimed box on your network has no users yet, so there's nothing to log in 
 claim code is not a password — it is **proof that you are the person holding the box**,
 which is the only thing that distinguishes you from anyone else who can reach it on your
 network. Whoever claims the box gets your email, your Claude token, and an assistant that
-acts on your behalf, so Ambrogio will not hand that to whoever asks first.
+acts on your behalf, so Wollie will not hand that to whoever asks first.
 
 That's why the box never invents a code of its own: a code the box made up is a code you'd
 have no way of knowing. The code has to come from the person who wrote the card — you.
@@ -148,14 +148,14 @@ than asking you for a code that doesn't exist.
 
 ## Set up and claim it from the app
 
-Open the **Ambrogio app** on your phone. What you do next depends on how the box got online.
+Open the **Wollie app** on your phone. What you do next depends on how the box got online.
 
 ### If the box is already on your network (Ethernet)
 
 1. The app finds the box and offers to **claim** it — this makes the box yours. Type the
    **claim code** from your code sheet.
 2. Give the box a **brain**: paste a Claude **subscription token** (from `claude
-   setup-token`) or an **Anthropic API key**. Ambrogio needs this to think.
+   setup-token`) or an **Anthropic API key**. Wollie needs this to think.
 3. That's it — say hello in the app.
 
 ### If the box raised its own setup Wi-Fi (no cable)
@@ -164,7 +164,7 @@ The box isn't on your network yet, so the app can't discover it until you've han
 home Wi-Fi. The app walks you through exactly that:
 
 1. On the app's connect screen, tap **"New box not on Wi-Fi yet? Set up its Wi-Fi"**, then
-   **scan the QR on your code sheet**. That connects your phone to the box's `Ambrogio-…`
+   **scan the QR on your code sheet**. That connects your phone to the box's `Wollie-…`
    setup network (the claim code is its password). On iPhone, tap to join that network when
    prompted — the QR fills the password for you.
 2. The app shows the Wi-Fi networks the box can see. Pick **your home Wi-Fi** and enter its
