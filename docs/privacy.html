@@ -93,14 +93,16 @@
     </p>
     <p>
       <b>With the iPhone app on its own, using a beta-tester invite</b> — the way to try Wollie
-      right now if you don't have a Claude subscription of your own. Your questions travel to a
+      right now if you don't have a credential of your own. Your questions travel to a
       server I run, and from there to Anthropic. That server exists only so you can test the beta
-      without a subscription of your own, but it does see what you send it. It's named below,
+      without a credential of your own, but it does see what you send it. It's named below,
       with exactly what it keeps.
     </p>
     <p>
-      <b>With the iPhone app on its own, using your own Claude subscription</b> — or an Anthropic
-      API key, or any endpoint that speaks the same Messages API shape. That includes a capable
+      <b>With the iPhone app on its own, using your own Anthropic API key</b> — a Claude
+      subscription is not enough here; a phone talking to Anthropic directly needs a key, which
+      is pay-as-you-go from prepaid credit. Or any endpoint of your own that speaks the same
+      Messages API shape. That includes a capable
       open-weight model you run yourself — Qwen, DeepSeek, GLM and Kimi are today's most credible
       options, usually reached through a small proxy that translates to that shape — if you'd
       rather not depend on Anthropic at all. With Anthropic, your questions travel directly to
@@ -229,17 +231,37 @@
       <b>Public sources Wollie looks things up in</b>
       <p>
         When you ask for something it has to fetch, the question — or the part of it that is the
-        query — goes to the service that answers it. These carry what you asked, not who you are:
-        there is no account and no identifier attached.
+        query — goes to the service that answers it. Most of these carry what you asked and not
+        who you are: no account, no identifier attached. <b>One group is different, and it is the
+        last one below</b>: checking a wallet's balance means handing a blockchain explorer that
+        wallet's address, and an address is a public, permanent identifier.
       </p>
       <p>
-        <b>Weather</b>: Open-Meteo (and its geocoding service, which receives the place name you
+        <b>Weather</b>: Open-Meteo, and its geocoding service, which receives the place name you
         typed — or, if you share where you are and ask about "here", coordinates rounded to
-        about a kilometre), and api.met.no. <b>Food</b>: Open Food Facts and the USDA food database, which
-        receive what you searched for. <b>News</b>: Google News, GNews and Hacker News.
-        <b>Markets</b>: CoinGecko, Binance and Finnhub, which receive the symbol you asked about.
-        The weather and food lookups happen from the app itself when you have no box; the rest
-        run on the box.
+        about a kilometre. A box also asks api.met.no. <b>Food</b>: Open Food Facts, which
+        receives what you searched for; the second food source is a dataset (CIQUAL) bundled
+        inside Wollie, read from disk, so nothing about that search leaves.
+        <b>News</b>: Google News, GNews and Hacker News. <b>Prices</b>: CoinGecko and Binance —
+        spot and futures — which receive the symbol you asked about; a box also asks Finnhub for
+        stocks, and both ask nfs.faireconomy.media for the week's economic calendar.
+      </p>
+      <p>
+        <b>Wallet balances — only for addresses you save, and only when you ask</b>:
+        blockchain.info (Bitcoin), eth.blockscout.com (Ethereum), graphql.mainnet.sui.io (Sui),
+        api.mainnet-beta.solana.com (Solana) and babel-api.mainnet.iotex.io (IoTeX). Each
+        receives the address it is asked about — for Bitcoin, the extended public key you saved,
+        whose individual addresses are worked out on your own device rather than sent anywhere.
+        This is the one lookup that identifies something of yours to the service answering it: if
+        you would rather nobody learned that an address was being watched from your connection,
+        don't save it here. The Portfolio does not do this — it holds the quantities you typed,
+        and asks CoinGecko only what they are worth.
+      </p>
+      <p>
+        Weather, food, prices, the Portfolio's price lookups and wallet balances are made by the
+        app itself whenever the phone is the brain — on its own, or in the "away" mode described
+        above. News, stocks and met.no exist only on a box. When your box is answering, it makes
+        all of them.
       </p>
     </li>
     <li>
