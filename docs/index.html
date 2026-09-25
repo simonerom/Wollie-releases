@@ -364,13 +364,15 @@
       <div class="half">
         <h3>On the phone alone</h3>
         <ul>
-          <li>Conversation with Claude — text, voice, photos</li>
+          <li>Conversation with Claude — text, voice, photos — and a search through it</li>
           <li>Memory: it keeps what you tell it, and forgets on request</li>
           <li>Documents: what you send is kept, digested and searchable</li>
           <li>Diet diary, with Apple Health if you allow it</li>
           <li>Projects: the house, the car, a pregnancy — facts and files, filed</li>
-          <li>Portfolio: what you hold, in dollars, euros or bitcoin, and your plan per coin</li>
-          <li>Crypto prices, wallet balances, technical readings</li>
+          <li>Portfolio: your wallets read from their chain, the amounts you type for an exchange,
+            the total and its chart in dollars, euros or bitcoin, and your plan per coin</li>
+          <li>Markets: prices and levels computed from the exchange's own data, the order book,
+            open contracts on the futures market, and how much the coin's chain is used</li>
           <li>Your phone's calendar, the weather, and where you are if you turn that on</li>
         </ul>
         <p class="sub">
@@ -384,10 +386,14 @@
           <li>Reads the family's email — and acts on it, once you've confirmed</li>
           <li>The household's calendar, shared projects and memory</li>
           <li>Lights, switches and radiator valves (Shelly)</li>
-          <li>Tasks that run while everyone is asleep</li>
+          <li>Tasks that run while everyone is asleep — hourly, weekdays at eight, the last Friday
+            of the month</li>
+          <li>Price alerts (&ldquo;tell me when ETH drops below 2400&rdquo;) checked without AI,
+            and your wallets re-read every hour for the chart</li>
           <li>&ldquo;Hey Siri, ask Wollie&rdquo;, and Telegram if you want it there</li>
           <li>Everyone in the house gets their own memory, mail and permissions</li>
-          <li>What it remembers, on a Pi you can unplug</li>
+          <li>What it remembers, on a Pi you can unplug — and, if you want, a copy of the whole
+            chat on your phone, to search and read without the box</li>
         </ul>
         <p class="sub">
           Anything that sends or switches something asks you first, in the app — Wollie proposes,
@@ -396,24 +402,46 @@
       </div>
     </div>
 
-    <!-- The Portfolio (TestFlight 133) and the level table (2026-09-23). The earlier «line it doesn't
-         cross» was removed by the owner that day: Wollie answers market questions like Claude does
-         anywhere, with its figures computed from the candles (app/src/modules/markets). -->
+    <!-- The Portfolio and the markets limb, as of 2026-09-25 — every sentence checked against the
+         Wollie repo, not against the previous version of this note:
+           accounts (wallet read from its chain / manual)  app/src/modules/portfolio/accounts.ts, reader.ts
+           five chains                                     app/src/modules/markets/wallets/chains.ts
+           usd / eur / btc, the chart, «Com'è diviso»      portfolio/views.ts (splitGroups), history.ts
+           hourly re-read on a box, none on a phone alone  tools/portfolio/hourly_job.py, portfolio/snapshot.ts
+           the page redraws every 20 s while open          portfolio/views.ts RELOAD_OPEN_MS
+           the coin's Market section + three fixed lines   portfolio/market.ts (summaryLines), markets/coin.ts
+           the plan's five questions                       portfolio/tools.ts set_plan, portfolio/guide.ts
+           levels / liquidity / history / project / news   markets/tools.ts, digest.ts, project.ts
+           price alerts, box only, no model                lib/price_alert.py, tools/scheduler/mcp.py
+         The earlier «line it doesn't cross» was removed by the owner on 2026-09-23: Wollie answers
+         market questions like Claude does anywhere, with its figures computed, not recalled. -->
     <div class="note">
-      <h3>What you hold, the plan you wrote, and the levels</h3>
+      <h3>What you hold, what the market is doing, and the plan you wrote</h3>
       <p>
-        The Portfolio keeps the coins you hold as you entered them — from any exchange or wallet —
-        what they're worth in dollars, euros or bitcoin, and a plan for each one: why you hold it,
-        what would change your mind, the close at which you'd admit being wrong, the most you'd
-        put in one decision, when you'd buy back. Five questions, asked one at a time, saved in your
-        own words. Before a trade Wollie reads that plan back to you beside its answer.
+        The Portfolio adds up what you hold, account by account. A wallet on Bitcoin, Ethereum,
+        Solana, Sui or IoTeX is read from its chain, so its amounts are never typed; an exchange is
+        an account where you type them. The total comes in dollars, euros or bitcoin, with a chart
+        of the balance over time and how it splits between stablecoins, bitcoin, ether and the
+        rest. The page redraws itself every twenty seconds while it's open. On a box the wallets
+        are read again every hour, so the chart keeps going with the phone in your pocket; on the
+        phone alone it has a point for the hours you opened it.
       </p>
       <p>
-        Ask it for levels and it computes them from the exchange's candles instead of quoting
-        articles: supports and resistances with what coincides at each — swing lows and highs,
-        moving averages, Fibonacci of the move in progress, round numbers, where the volume traded —
-        and how often price held there or broke through. It runs on the phone alone and on a box, and
-        what you enter stays where you entered it.
+        Each coin's page adds a Market section from Binance, the day's trading and the open
+        contracts on the futures market ranked against the pair's own past, summed up in three
+        lines worked out by fixed rules, without AI.
+      </p>
+      <p>
+        And a plan for each coin: why you hold it, what would change your mind, the close at which
+        you'd admit being wrong, the most you'd put in one decision, when you'd buy back. Five
+        questions, asked one at a time, saved in your own words. Before a trade Wollie reads that
+        plan back to you beside its answer.
+      </p>
+      <p>
+        Ask it about the market and it computes instead of quoting articles. When it tells you
+        what followed weeks like this one, it always shows how often price rose on any day of the
+        same years: tested on six pairs since 2019, the look-alike weeks never did usefully better
+        than that plain average.
       </p>
     </div>
 
@@ -443,8 +471,9 @@
      of a house with a box in it, back when a box was the only shape. It was never true of the
      phone on its own — which is now how the public beta works — and it was not even true of the
      box, which also talks to a weather service, a food database, a news source, price feeds,
-     five blockchain explorers and your own mail provider. A promise of completeness is worth
-     exactly as much as its longest omission, so the band no longer makes one: it shows the three
+     an exchange's market data, DefiLlama and GitHub, five blockchain explorers, the web pages it
+     opens in a chat and your own mail provider. A promise of completeness is worth exactly as
+     much as its longest omission, so the band no longer makes one: it shows the three
      that matter most and sends you to the list. Anything added to that list on privacy.html must
      actually be on it before this band says it is. -->
 <section class="privacy">
@@ -511,9 +540,10 @@
     <h2>A Raspberry Pi on your shelf. Four steps, and a credential for Claude.</h2>
     <p class="lede">
       You'll need a Raspberry Pi 4 or 5 — 2&nbsp;GB of RAM at the very least, 4&nbsp;GB if you
-      can — a microSD card of 16&nbsp;GB or more, and a computer to write it with. Writing the
-      card takes about ten minutes and runs unattended; your part of steps 1 to 3 is about a
-      minute. Step 4 needs a credential, and that one is worth reading first.
+      can — a microSD card of 16&nbsp;GB or more, and a computer to write it with. 2&nbsp;GB runs
+      it; 4&nbsp;GB leaves it room to grow. Writing the card takes about ten minutes and runs
+      unattended; your part of steps 1 to 3 is about a minute. Step 4 needs a credential, and
+      that one is worth reading first.
     </p>
 
     <div class="cmd">

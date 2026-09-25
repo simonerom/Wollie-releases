@@ -242,26 +242,70 @@
         about a kilometre. A box also asks api.met.no. <b>Food</b>: Open Food Facts, which
         receives what you searched for; the second food source is a dataset (CIQUAL) bundled
         inside Wollie, read from disk, so nothing about that search leaves.
-        <b>News</b>: Google News, GNews and Hacker News. <b>Prices</b>: CoinGecko and Binance —
-        spot and futures — which receive the symbol you asked about; a box also asks Finnhub for
-        stocks, and both ask nfs.faireconomy.media for the week's economic calendar.
+        <b>News</b>: Google News, GNews and Hacker News.
       </p>
       <p>
-        <b>Wallet balances — only for addresses you save, and only when you ask</b>:
-        blockchain.info (Bitcoin), eth.blockscout.com (Ethereum), graphql.mainnet.sui.io (Sui),
-        api.mainnet-beta.solana.com (Solana) and babel-api.mainnet.iotex.io (IoTeX). Each
-        receives the address it is asked about — for Bitcoin, the extended public key you saved,
-        whose individual addresses are worked out on your own device rather than sent anywhere.
-        This is the one lookup that identifies something of yours to the service answering it: if
-        you would rather nobody learned that an address was being watched from your connection,
-        don't save it here. The Portfolio does not do this — it holds the quantities you typed,
-        and asks CoinGecko only what they are worth.
+        <b>Prices and the market</b>: <b>CoinGecko</b> (api.coingecko.com) receives the coins asked
+        about — for the Portfolio, the list of every coin in it, never an amount — and is where the
+        list of known tokens comes from, which is what tells a real token in a wallet from junk
+        someone airdropped into it. If you save a CoinGecko Demo key in the Portfolio, that key
+        goes with the Portfolio's price requests, and on a box also with the hourly re-read and
+        with Wollie's own price look-ups, so CoinGecko can tie those to your account there; the
+        other requests to CoinGecko go without it. <b>Binance</b> receives a ticker:
+        api.binance.com for prices, candles and the order book, fapi.binance.com for the open
+        contracts on the futures market and their funding (what one side of those contracts pays
+        the other) — when you ask Wollie about a coin, and when you open a coin's page in the
+        Portfolio.
+        <b>DefiLlama</b> (api.llama.fi) receives the name of a coin's own chain, and <b>GitHub</b>
+        (api.github.com) the name of one public repository, only when you ask how a coin's
+        project is doing; both names come from a table inside Wollie, not from anything you
+        typed. nfs.faireconomy.media serves the week's economic calendar, the same file for
+        everyone. A box also asks Finnhub for stocks, and a price alert you set on a box asks
+        CoinGecko (Binance if it doesn't answer) for that one coin, every quarter of an hour
+        unless you chose otherwise, until it fires.
       </p>
       <p>
-        Weather, food, prices, the Portfolio's price lookups and wallet balances are made by the
-        app itself whenever the phone is the brain — on its own, or in the "away" mode described
-        above. News, stocks and met.no exist only on a box. When your box is answering, it makes
-        all of them.
+        <b>Wallet balances</b>: blockchain.info (Bitcoin), eth.blockscout.com (Ethereum),
+        graphql.mainnet.sui.io (Sui), api.mainnet-beta.solana.com (Solana) and
+        babel-api.mainnet.iotex.io (IoTeX). Each receives the address it is asked about. For
+        Bitcoin, an extended public key never leaves: your phone or your box works out its
+        addresses and asks about them in batches, so blockchain.info can see that those addresses
+        belong together. An address is asked about when you ask about it, whether you type it in a
+        chat or saved it for checking. And one you add to the <b>Portfolio as an account</b> is read
+        again, once its last reading is more than half an hour old, whenever something needs it:
+        the Portfolio or that account's own page being open, or Wollie being asked what you hold,
+        which on a box can also happen inside a scheduled task. A page that stays open checks
+        again every twenty seconds, so it keeps reading every half hour; on a box the Portfolio's
+        main page waits an hour and a quarter instead. On a phone with no box it is also read when
+        the app comes back to the front, at most once every ten minutes. A pull to refresh reads it
+        again. And a box reads it by itself <b>every hour</b>, with nobody looking, so the balance
+        chart keeps going.
+      </p>
+      <p>
+        This is the one lookup that identifies something of yours to the service answering it,
+        and the Portfolio's makes it a regular one. If you would rather nobody learned that an
+        address was being watched from your connection, don't add it: a manual account, where you
+        type the amounts, asks no explorer anything.
+      </p>
+      <p>
+        Weather, food, prices, market readings and wallet balances are looked up by the app
+        itself whenever the phone is the brain — on its own, or in the "away" mode described
+        above — and so is everything the Portfolio shows on a phone without a box. News, stocks,
+        met.no and price alerts exist only on a box. When your box is answering, it makes all of
+        them, the Portfolio's included.
+      </p>
+    </li>
+    <li>
+      <b>The web, when Wollie looks something up in a chat</b>
+      <p>
+        With a box, in a chat, Wollie can search the web and open a page, one it found or one you
+        named. The search is run by Anthropic. The page is fetched by the box itself, so that site
+        sees your home connection and the address asked for, as it would if you opened it.
+        Anthropic is told the site's name first, and reads the page's text to answer you. This
+        never happens in a scheduled task, where the box takes both away from Wollie, and never on
+        a child's account. On the phone with your own Anthropic key, a search is run by Anthropic
+        on its side and nothing is fetched from the phone; through the gateway there is no web
+        search at all.
       </p>
     </li>
     <li>
@@ -277,10 +321,13 @@
     <li>
       <b>Your box → Expo → Apple, for push notifications</b>
       <p>
-        If you turn on notifications in the app, the box asks Expo's push service (exp.host) to
+        If you allow notifications from the app, the box asks Expo's push service (exp.host) to
         ring your phone through Apple. <b>The notification carries no content</b> — only a
         generic category such as "New message", "Heads up" or "Urgent". The real text stays on
-        your box and the app fetches it when you open it.
+        your box and the app fetches it when you open it. Whenever the app starts while it is
+        paired to a box and notifications are allowed, it asks Expo for the push address the box
+        will use. That request carries the phone's Apple push token, an install ID the app
+        generates and the app's own identifiers, and nothing you wrote.
       </p>
     </li>
     <li>
@@ -294,13 +341,17 @@
       </p>
     </li>
     <li class="never">
-      <b>Analytics, telemetry, crash reports → nobody</b>
+      <b>Analytics, telemetry, crash reports from the app → nobody</b>
       <p>
-        Never, in either shape. The app contains no analytics SDK, no crash reporter and no
-        tracking of any kind; there is no advertising identifier, no profiling and no third-party
-        measurement. Your box does not phone home, and updates are something you fetch from
-        GitHub when you choose to. The gateway described above is not an exception: it sees the
-        questions it is asked to answer, because it has to in order to answer them, and it is not
+        The app contains no analytics SDK, no crash reporter and no tracking of any kind; there is
+        no advertising identifier, no profiling and no third-party measurement. Your box does not
+        phone home to me, and updates are something you fetch from GitHub when you choose to.
+        <b>One exception, today:</b> the brain on a box, and on the gateway, is Anthropic's own
+        Claude command-line tool, which by default reports usage metrics and errors to Anthropic
+        (and to the services it uses for that), as it does on anyone's computer. Wollie does not
+        switch that off yet. The app talking to Anthropic with your own key does not use that
+        tool. The gateway described above is not an exception: it sees the questions it is asked
+        to answer, because it has to in order to answer them, and it is not
         used to build a profile of you or given to anyone else.
       </p>
     </li>
@@ -350,8 +401,16 @@
   <p class="col">
     In the iOS keychain: the address of whatever answers you, and the credential for it — the
     token that pairs your phone to your box, or the token the gateway issued you, or the
-    Anthropic key you supplied. Alongside it: your own display preferences, and a cached copy of
+    Anthropic key you supplied; without a box, also your CoinGecko Demo key, if you saved one.
+    Alongside it: your own display preferences, and a cached copy of
     the recent conversation so the app opens instantly.
+  </p>
+  <p class="col">
+    With a box, and only if you turn on <i>Keep the chat on this phone</i> in the Me tab: a copy
+    of your whole conversation with Wollie, so you can search it and read it without reaching the
+    box. The box stays the original: whatever is deleted there goes from the phone too, the next
+    time it reaches the box. Photos and files stay on the box. The copy sits in a part of the
+    phone that iOS leaves out of its backups, and turning the switch off deletes it.
   </p>
   <p class="col">
     If you turn on <i>recall by meaning</i> in the app's memory screen, the phone also downloads
@@ -363,10 +422,11 @@
   </p>
   <p class="col">
     Without a box, the phone is also where your own entries live — what you logged in the diet,
-    your projects, the documents you kept — because there is nowhere else for them to be.
+    your projects, the documents you kept, your Portfolio with its accounts, the wallet addresses
+    in them and the balance it had hour by hour — because there is nowhere else for them to be.
     Deleting the app deletes that. Keychain entries are the one thing that can outlive a delete
     on iOS, depending on the version and on whether the phone was restored from a backup, so if
-    you want to be certain, clear the key in the app before removing it.
+    you want to be certain, clear the keys in the app before removing it.
   </p>
   <p class="col">
     &ldquo;Unpair this device&rdquo; removes the token from your box. The gateway is less tidy
@@ -397,7 +457,7 @@
 
   <h2>What the app asks your phone for</h2>
   <p class="col">
-    Besides Apple Health, the app asks iOS for four things, each only when you first use the
+    Besides Apple Health, the app asks iOS for five things, each only when you first use the
     feature that needs it, and each refusable:
   </p>
   <ul class="plain">
@@ -409,6 +469,8 @@
       are made depends on your phone and on a setting in the app: on-device recognition when it
       is available, otherwise the audio goes to Apple's speech service, the same one the system
       keyboard's dictation uses. The app tells you which of the two is happening.</li>
+    <li><b>Notifications</b> — asked as soon as the phone is paired with a box, so the box can
+      ring it. Refusing them only means Wollie's messages wait in the app until you open it.</li>
     <li><b>Camera and photo library</b> — only when you attach a photo or scan a document, and
       only for the file you pick.</li>
     <li><b>Location</b> — for two things, and only while the app is open. During setup, iOS
@@ -452,7 +514,7 @@
     <a href="https://github.com/simonerom/Wollie-releases/issues">open an issue</a>.
   </p>
 
-  <p class="note">Last updated: 19 September 2026.</p>
+  <p class="note">Last updated: 25 September 2026.</p>
 
 </main>
 
@@ -466,7 +528,8 @@
     </div>
     <p class="fine">
       Wollie is released under the PolyForm Noncommercial 1.0.0 licence — free for personal,
-      family, hobby, educational and charitable use. It needs your own Claude subscription to think.
+      family, hobby, educational and charitable use. It thinks with Claude: your own subscription
+      or Anthropic API key, or — on the phone, during the beta — an invite code for a server I run.
     </p>
   </div>
 </footer>
