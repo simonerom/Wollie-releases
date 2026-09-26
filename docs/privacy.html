@@ -341,18 +341,19 @@
       </p>
     </li>
     <li class="never">
-      <b>Analytics, telemetry, crash reports from the app → nobody</b>
+      <b>Analytics, telemetry, crash reports → nobody</b>
       <p>
         The app contains no analytics SDK, no crash reporter and no tracking of any kind; there is
         no advertising identifier, no profiling and no third-party measurement. Your box does not
         phone home to me, and updates are something you fetch from GitHub when you choose to.
-        <b>One exception, today:</b> the brain on a box, and on the gateway, is Anthropic's own
-        Claude command-line tool, which by default reports usage metrics and errors to Anthropic
-        (and to the services it uses for that), as it does on anyone's computer. Wollie does not
-        switch that off yet. The app talking to Anthropic with your own key does not use that
-        tool. The gateway described above is not an exception: it sees the questions it is asked
-        to answer, because it has to in order to answer them, and it is not
-        used to build a profile of you or given to anyone else.
+        The brain on a box, and on the gateway, is Anthropic's own Claude command-line tool,
+        which by default reports usage metrics and errors to Anthropic (and to the services it
+        uses for that), as it does on anyone's computer. Wollie switches that off: a box from its
+        update of 26 September 2026 (one set up from an older image once it updates), the
+        gateway from its next restart. The app talking to Anthropic with your own key does not
+        use that tool. As for the gateway described above: it sees the questions it is asked to
+        answer, because it has to in order to answer them, and it is not used to build a profile
+        of you or given to anyone else.
       </p>
     </li>
   </ul>
