@@ -513,7 +513,7 @@
     <li><b>Away from home</b>, the app reaches the box through Tailscale: encrypted end to end,
       with a real certificate on the box's own name.</li>
     <li><b>At home</b>, the app talks to the box over your home network in plain HTTP, without
-      encryption. Since the app's build 147 and the box's update of 3 October 2026, every request
+      encryption. Since the app's build 147 and the box image 0.6.0, every request
       is <b>signed</b> with a key that is made on the phone and never leaves it; the box keeps
       only the public half. So someone else on your Wi-Fi can no longer act as you towards the
       box, nor repeat a request that changes something, and the phone's old access code is
@@ -531,8 +531,7 @@
     <li><b>The web console</b> asks for your password over that same plain connection at home.
       Through Tailscale it is encrypted.</li>
     <li><b>On the box itself</b>, your data and its credentials are stored unencrypted on its
-      card (or on the disk you gave it). Whoever takes the card out can read it. The backups you
-      export are encrypted with a passphrase; the card is not.</li>
+      card (or on the disk you gave it). Whoever takes the card out can read it.</li>
     <li>A phone still on a build older than 147 keeps using the old access code until it
       updates; once it has, going back to an older build would leave it unpaired.</li>
   </ul>
