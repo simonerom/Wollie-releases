@@ -127,9 +127,11 @@
     equivalent computer) that you flashed and plugged in. If you turn on <i>recall by
     meaning</i> (Settings → Memory), each memory is also kept there as a list of numbers derived
     from its text, so Wollie can find it by what it means and not only by the words it
-    contains; those numbers are computed on the box and stay on it. At home the app talks to that box.
-    When you are away it reaches the box over your own private network (Tailscale); the traffic
-    is encrypted end to end between your phone and your box. Deleting your data means deleting it
+    contains; those numbers are computed on the box and stay on it. At home the app talks to that
+    box over your home network, and that connection is not encrypted unless Tailscale is on on
+    the phone too: <a href="#security">how the phone and the box talk</a> says exactly what that
+    means. When you are away it reaches the box over your own private network (Tailscale); the
+    traffic is encrypted end to end between your phone and your box. Deleting your data means deleting it
     from your box, or unplugging the box. Nobody has to approve that, and no copy survives
     somewhere else.
   </p>
@@ -249,9 +251,9 @@
         about — for the Portfolio, the list of every coin in it, never an amount — and is where the
         list of known tokens comes from, which is what tells a real token in a wallet from junk
         someone airdropped into it. If you save a CoinGecko Demo key in the Portfolio, that key
-        goes with the Portfolio's price requests, and on a box also with the hourly re-read and
-        with Wollie's own price look-ups, so CoinGecko can tie those to your account there; the
-        other requests to CoinGecko go without it. <b>Binance</b> receives a ticker:
+        goes with the Portfolio's price requests and with the download of that list of tokens, and
+        on a box also with the hourly re-read and with Wollie's own price look-ups, so CoinGecko
+        can tie those to your account there; the other requests to CoinGecko go without it. <b>Binance</b> receives a ticker:
         api.binance.com for prices, candles and the order book, fapi.binance.com for the open
         contracts on the futures market and their funding (what one side of those contracts pays
         the other) — when you ask Wollie about a coin, and when you open a coin's page in the
@@ -266,8 +268,13 @@
       </p>
       <p>
         <b>Wallet balances</b>: blockchain.info (Bitcoin), eth.blockscout.com (Ethereum),
-        graphql.mainnet.sui.io (Sui), api.mainnet-beta.solana.com (Solana) and
-        babel-api.mainnet.iotex.io (IoTeX). Each receives the address it is asked about. For
+        polygon.blockscout.com (Polygon), bsc-dataseed.binance.org (BNB Chain, a public node run by
+        Binance), base.blockscout.com (Base), arbitrum.blockscout.com (Arbitrum),
+        explorer.optimism.io (Optimism), graphql.mainnet.sui.io (Sui),
+        api.mainnet-beta.solana.com (Solana) and babel-api.mainnet.iotex.io (IoTeX). Each receives
+        the address it is asked about. A <b>0x… address</b> is written the same way on Ethereum,
+        Polygon, BNB Chain, Base, Arbitrum, Optimism and IoTeX, so one you add to the Portfolio is
+        read on all seven, and each of those seven services receives it. For
         Bitcoin, an extended public key never leaves: your phone or your box works out its
         addresses and asks about them in batches, so blockchain.info can see that those addresses
         belong together. An address is asked about when you ask about it, whether you type it in a
@@ -323,8 +330,11 @@
       <p>
         If you allow notifications from the app, the box asks Expo's push service (exp.host) to
         ring your phone through Apple. <b>The notification carries no content</b> — only a
-        generic category such as "New message", "Heads up" or "Urgent". The real text stays on
-        your box and the app fetches it when you open it. Whenever the app starts while it is
+        generic category such as "New message", "Heads up", "Urgent" or "Reminder", and for a
+        reminder its number on your box, so that its buttons know which one to mark as done. The
+        real text stays on your box and the app fetches it when you open it. The one exception is
+        yours to make: on the Reminders page you can choose to read a reminder's own words in its
+        notification, and for whoever turns that on those words cross Expo and Apple. Whenever the app starts while it is
         paired to a box and notifications are allowed, it asks Expo for the push address the box
         will use. That request carries the phone's Apple push token, an install ID the app
         generates and the app's own identifiers, and nothing you wrote.
@@ -403,6 +413,9 @@
     In the iOS keychain: the address of whatever answers you, and the credential for it — the
     token that pairs your phone to your box, or the token the gateway issued you, or the
     Anthropic key you supplied; without a box, also your CoinGecko Demo key, if you saved one.
+    With a box, also the key the phone signs its requests with, made on the phone and never
+    sent anywhere, and the public half of the box's own key, which the phone uses to recognise
+    its box (see <a href="#security">below</a>).
     Alongside it: your own display preferences, and a cached copy of
     the recent conversation so the app opens instantly.
   </p>
@@ -491,6 +504,39 @@
       if you ask, and turning the switch off forgets the last position at once.</li>
   </ul>
 
+  <h2 id="security">How the phone and the box talk</h2>
+  <p class="col">
+    This is the part of the arrangement most likely to be misunderstood, so it gets its own
+    section, with the weak points in it.
+  </p>
+  <ul class="plain">
+    <li><b>Away from home</b>, the app reaches the box through Tailscale: encrypted end to end,
+      with a real certificate on the box's own name.</li>
+    <li><b>At home</b>, the app talks to the box over your home network in plain HTTP, without
+      encryption. Since the app's build 147 and the box's update of 3 October 2026, every request
+      is <b>signed</b> with a key that is made on the phone and never leaves it; the box keeps
+      only the public half. So someone else on your Wi-Fi can no longer act as you towards the
+      box, nor repeat a request that changes something, and the phone's old access code is
+      refused from its first signed request on. The signature also names the address it was
+      meant for, and the box refuses one meant for somebody else's.</li>
+    <li><b>What that does not do</b>: hide the conversation. On plain HTTP, someone on the same
+      network who sets out to capture its traffic can read what passes between the app and the
+      box. If Tailscale is on on the phone, the app uses the encrypted route at home too, after
+      the box has proved, with a key of its own, that it is your box. If you share your Wi-Fi
+      with people you don't trust, turn Tailscale on.</li>
+    <li><b>The moment of pairing</b> happens over the home network, and the phone trusts the
+      first box that answers its code. Pair while nobody you don't trust is on your network.</li>
+    <li><b>A file you send</b> from the phone is not covered by the signature byte by byte:
+      someone actively in the middle of your home network could swap it on the way.</li>
+    <li><b>The web console</b> asks for your password over that same plain connection at home.
+      Through Tailscale it is encrypted.</li>
+    <li><b>On the box itself</b>, your data and its credentials are stored unencrypted on its
+      card (or on the disk you gave it). Whoever takes the card out can read it. The backups you
+      export are encrypted with a passphrase; the card is not.</li>
+    <li>A phone still on a build older than 147 keeps using the old access code until it
+      updates; once it has, going back to an older build would leave it unpaired.</li>
+  </ul>
+
   <h2>Everyone in the household</h2>
   <p class="col">
     A Wollie box can serve several people, each with their own data and their own permissions.
@@ -515,7 +561,7 @@
     <a href="https://github.com/simonerom/Wollie-releases/issues">open an issue</a>.
   </p>
 
-  <p class="note">Last updated: 25 September 2026.</p>
+  <p class="note">Last updated: 3 October 2026.</p>
 
 </main>
 

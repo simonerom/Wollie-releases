@@ -383,7 +383,10 @@
       <div class="half box">
         <h3>With a box</h3>
         <ul>
-          <li>Reads the family's email — and acts on it, once you've confirmed</li>
+          <li>Reads the family's email — and acts on it once you've confirmed, with an email's words
+            still yours to correct before it goes</li>
+          <li>Reminders that ring by themselves, with alerts before they're due, and today's on
+            the Today tab</li>
           <li>The household's calendar, shared projects and memory</li>
           <li>Lights, switches and radiator valves (Shelly)</li>
           <li>Tasks that run while everyone is asleep — hourly, weekdays at eight, the last Friday
@@ -391,7 +394,8 @@
           <li>Price alerts (&ldquo;tell me when ETH drops below 2400&rdquo;) checked without AI,
             and your wallets re-read every hour for the chart</li>
           <li>&ldquo;Hey Siri, ask Wollie&rdquo;, and Telegram if you want it there</li>
-          <li>Everyone in the house gets their own memory, mail and permissions</li>
+          <li>Everyone in the house gets their own memory, mail and permissions, and one switch
+            turns Wollie's AI off for all of them</li>
           <li>What it remembers, on a Pi you can unplug — and, if you want, a copy of the whole
             chat on your phone, to search and read without the box</li>
         </ul>
@@ -405,7 +409,7 @@
     <!-- The Portfolio and the markets limb, as of 2026-09-25 — every sentence checked against the
          Wollie repo, not against the previous version of this note:
            accounts (wallet read from its chain / manual)  app/src/modules/portfolio/accounts.ts, reader.ts
-           five chains                                     app/src/modules/markets/wallets/chains.ts
+           ten chains, one 0x address read on all seven EVM  app/src/modules/markets/wallets/chains.ts (2026-10-02)
            usd / eur / btc, the chart, «Com'è diviso»      portfolio/views.ts (splitGroups), history.ts
            hourly re-read on a box, none on a phone alone  tools/portfolio/hourly_job.py, portfolio/snapshot.ts
            the page redraws every 20 s while open          portfolio/views.ts RELOAD_OPEN_MS
@@ -419,8 +423,9 @@
       <h3>What you hold, what the market is doing, and the plan you wrote</h3>
       <p>
         The Portfolio adds up what you hold, account by account. A wallet on Bitcoin, Ethereum,
-        Solana, Sui or IoTeX is read from its chain, so its amounts are never typed; an exchange is
-        an account where you type them. The total comes in dollars, euros or bitcoin, with a chart
+        Polygon, BNB Chain, Base, Arbitrum, Optimism, Solana, Sui or IoTeX is read from its chain,
+        so its amounts are never typed, and a 0x address is read on every one of those networks
+        that uses it; an exchange is an account where you type them. The total comes in dollars, euros or bitcoin, with a chart
         of the balance over time and how it splits between stablecoins, bitcoin, ether and the
         rest. The page redraws itself every twenty seconds while it's open. On a box the wallets
         are read again every hour, so the chart keeps going with the phone in your pocket; on the
@@ -471,7 +476,7 @@
      of a house with a box in it, back when a box was the only shape. It was never true of the
      phone on its own — which is now how the public beta works — and it was not even true of the
      box, which also talks to a weather service, a food database, a news source, price feeds,
-     an exchange's market data, DefiLlama and GitHub, five blockchain explorers, the web pages it
+     an exchange's market data, DefiLlama and GitHub, ten blockchain explorers, the web pages it
      opens in a chat and your own mail provider. A promise of completeness is worth exactly as
      much as its longest omission, so the band no longer makes one: it shows the three
      that matter most and sends you to the list. Anything added to that list on privacy.html must
@@ -501,7 +506,8 @@
         <p>
           To ring your phone, Apple and Expo are told only a generic category — &ldquo;New
           message&rdquo;, &ldquo;New mail&rdquo;, &ldquo;Urgent&rdquo; and a few more like them.
-          The words stay on your box until you open the app.
+          The words stay on your box until you open the app, unless you choose to see a
+          reminder's own words in its notification.
         </p>
       </div>
       <div class="pcard">
@@ -530,6 +536,10 @@
 
     <p class="pmore">
       <a href="./privacy.html">What each one carries, in detail →</a>
+    </p>
+    <p class="pmore">
+      <a href="./privacy.html#security">At home, how the phone and the box talk — and where that is
+      weak →</a>
     </p>
   </div>
 </section>
