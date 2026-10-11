@@ -1,5 +1,41 @@
 [
   {
+    "id": "ios-151",
+    "kind": "ios",
+    "title": "Build 151",
+    "date": "2026-10-11",
+    "summary": "Several chats, one per topic: swipe sideways to go from one to the next. And a reading mode for long answers.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "Chats: tap «New chat» and you are in it straight away; Wollie names it from your first message, and you can rename it any time. An empty new chat you have not written in is reopened instead of making another.",
+          "Swipe sideways to go from one chat to the next; the dots under the name say which one you are in, and which one is answering or has a new reply. Rename, reorder and delete chats from the list (tap the name at the top).",
+          "Wollie has the same memories in every chat, but each chat only sees its own messages. Reports, notices and Telegram arrive in the main chat.",
+          "Reading mode: long-press a message and choose «Reading mode» (or open it from Quick settings). Full screen, an easy typeface, seven sizes, white, sepia or night page.",
+          "Scroll back through a chat and a search bar comes up at the bottom: type and press Search.",
+          "Scheduled jobs can search the web when their «Search the web» switch is on (on the job's page). Wollie turns it on when a job needs it; with the web on, sending mail, changing the calendar or controlling a device always asks for a tap.",
+          "The icons at the top sit on the right, and the cost is no longer there (it is in Settings).",
+          "«Tidy above» also takes a number of your own («Another number…»)."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to try",
+        "items": [
+          "Tap «Wollie» at the top, tap «New chat» and ask something: the chat gets a name with the answer.",
+          "Long-press an answer, choose «Reading mode», then «Aa» to change size and page.",
+          "Scroll up in a chat, type a word in the bar at the bottom and press Search."
+        ],
+        "ordered": true
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    }
+  },
+  {
     "id": "ios-150",
     "kind": "ios",
     "title": "Build 150",
