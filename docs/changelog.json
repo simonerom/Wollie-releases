@@ -12,6 +12,30 @@
     }
   },
   {
+    "id": "box-0.6.1",
+    "kind": "box",
+    "title": "Box update 0.6.1",
+    "date": "2026-10-11",
+    "summary": "The first update for the box that installs from the app: the box's owner sees it on the Me tab and taps Update now. Wollie is offline for about a minute while the box restarts, and your data stays where it is.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "Several chats: start a new one for each topic, and Wollie names it after your first message.",
+          "Scheduled jobs can search the web when their web switch is on, and open pages only on the sites you allow with a tap.",
+          "Verified senders: an attachment from a trusted sender downloads by itself only when the sender's own mail provider confirms who sent it. Anything else asks you first.",
+          "Box updates from the app: when a new version is ready, the owner installs it with one tap. If the new version doesn't start, the box goes back by itself to how it was before the update.",
+          "Under the hood: dependencies pinned with hashes, a sturdier way to ship code to the box, and many fixes from code reviews."
+        ]
+      }
+    ],
+    "note": "**Boxes on the 0.6.0 image or earlier can't install this update in place: they get these changes with the next image. The Update card needs the Wollie app build 152 or later; older apps keep working with this box.**",
+    "get": {
+      "label": "Install it from the Wollie app (Me tab)",
+      "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.6.1"
+    }
+  },
+  {
     "id": "ios-150",
     "kind": "ios",
     "title": "Build 150",
