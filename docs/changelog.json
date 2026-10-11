@@ -1,0 +1,115 @@
+[
+  {
+    "id": "ios-150",
+    "kind": "ios",
+    "title": "Build 150",
+    "date": "2026-10-10",
+    "summary": "Several chats, one per topic: swipe sideways to go from one to the next. And a reading mode for long answers.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "Chats: tap «New chat» and you are in it straight away; Wollie names it from your first message, and you can rename it any time. An empty new chat you have not written in is reopened instead of making another.",
+          "Swipe sideways to go from one chat to the next; the dots under the name say which one you are in, and which one is answering or has a new reply. Rename, reorder and delete chats from the list (tap the name at the top).",
+          "Wollie has the same memories in every chat, but each chat only sees its own messages. Reports, notices and Telegram arrive in the main chat.",
+          "Reading mode: long-press a message and choose «Reading mode» (or open it from Quick settings). Full screen, an easy typeface, seven sizes, white, sepia or night page.",
+          "Scroll back through a chat and a search bar comes up at the bottom: type and press Search.",
+          "Scheduled jobs can search the web when their «Search the web» switch is on (on the job's page). Wollie turns it on when a job needs it; with the web on, sending mail, changing the calendar or controlling a device always asks for a tap.",
+          "The icons at the top sit on the right, and the cost is no longer there (it is in Settings).",
+          "«Tidy above» also takes a number of your own («Another number…»)."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to try",
+        "items": [
+          "Tap «Wollie» at the top, tap «New chat» and ask something: the chat gets a name with the answer.",
+          "Long-press an answer, choose «Reading mode», then «Aa» to change size and page.",
+          "Scroll up in a chat, type a word in the bar at the bottom and press Search."
+        ],
+        "ordered": true
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    },
+    "images": [
+      {
+        "src": "changelog/ios-150/chats.jpg",
+        "caption": "One chat per topic: tap the name at the top for the list, or start a new one.",
+        "alt": "The list of chats: Main chat, Home, Work and Lisbon trip, with a New chat button.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-150/swipe.jpg",
+        "caption": "Swipe sideways from one chat to the next; the dots say which one you are in.",
+        "alt": "The Home chat, with four dots under its name and a question about the boiler technician.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-150/reading-mode.jpg",
+        "caption": "Reading mode: full screen, an easy typeface, your size, a white, sepia or night page.",
+        "alt": "A long answer comparing electricity offers in reading mode, on a sepia page in a serif typeface.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-150/search.jpg",
+        "caption": "Scroll back through a chat and the search bar comes up.",
+        "alt": "A chat scrolled back, with a floating search bar holding the word electricity.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-150/job-web.jpg",
+        "caption": "A scheduled job can search the web: Wollie turns it on when a job needs it, and so can you.",
+        "alt": "A scheduled job, Morning news digest, with its Search the web switch on.",
+        "w": 639,
+        "h": 1387
+      }
+    ]
+  },
+  {
+    "id": "box-0.6.0",
+    "kind": "box",
+    "title": "Box image 0.6.0",
+    "date": "2026-10-03",
+    "summary": "The box image for Wollie 0.6.0. Flash it with the one-line command on the [site](https://simonerom.github.io/Wollie-releases/#box), or with Raspberry Pi Imager and `wollie-repo.json`.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "**Reminders.** Something you have to do, with fixed words, that rings by itself at its time, without asking the AI. Alerts before it's due (\"the day before at 17:00\", \"2 hours before\"), repeats, tags, and buttons on the notification to mark it done or snooze it. Today's are on the app's Today tab.",
+          "**Portfolio.** Accounts, made of wallets read from their chain or amounts you type for an exchange, with a balance chart in dollars, euros or bitcoin and how it splits. Ten chains now: Bitcoin, Ethereum, Polygon, BNB Chain, Base, Arbitrum, Optimism, Solana, Sui and IoTeX, and a 0x address is read on every one of those that uses it. Each coin has a Market section, and the box re-reads the wallets every hour.",
+          "**Signed requests.** At home the app talks to the box over plain HTTP. With app build 147 or later, every request is now signed with a key that stays on the phone, so someone on your Wi-Fi can no longer act as you. It does not hide the traffic: [the privacy page](https://simonerom.github.io/Wollie-releases/privacy.html#security) says exactly what is and isn't covered.",
+          "**Emails you can correct on the confirmation card.** You can change the subject and text before the email goes. The recipients can't be changed there.",
+          "**A general off switch** for the box's owner, in the console and in the app. Off means no AI calls and no scheduled jobs; reminders still ring.",
+          "**Scheduled jobs** follow any calendar rule, on the household's clock, and a run missed while the box was off is made up.",
+          "**The brain** can be Claude or, to experiment, an endpoint of your own that speaks the same API.",
+          "The box's Claude command-line tool sends no telemetry, error reports or update checks."
+        ]
+      }
+    ],
+    "note": "**A box you already have:** there is no in-place update yet, and flashing this image starts a box from scratch. If your box is in use, it is fine to leave it on its version for now. Phones on app builds before 147 keep working; once a phone has opened 147, don't go back to an older build, or it will need pairing again.",
+    "get": {
+      "label": "Release page and download",
+      "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.6.0"
+    }
+  },
+  {
+    "id": "box-0.5.0",
+    "kind": "box",
+    "title": "Box image 0.5.0",
+    "date": "2026-09-20",
+    "summary": "The first box image under the name Wollie — before, it was called Ambrogio. Flash it with Raspberry Pi Imager or the one-line command on the site.",
+    "sections": [],
+    "note": "",
+    "get": {
+      "label": "Release page and download",
+      "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.5.0"
+    }
+  }
+]
