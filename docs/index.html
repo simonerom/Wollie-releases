@@ -119,6 +119,16 @@
   }
   .cta-note{margin-top:14px; max-width:var(--measure); font-size:14.5px; color:var(--muted); line-height:1.55}
   .cta-note a{color:var(--livrea); text-decoration-thickness:1px; text-underline-offset:3px}
+  /* How to start: three real steps in order, so they are numbered. Quiet, under the buttons. */
+  .start{margin:18px 0 6px; padding:0; max-width:var(--measure); list-style:none;
+         counter-reset:step; font-size:15.5px; line-height:1.55; color:var(--ink)}
+  .start li{counter-increment:step; position:relative; padding-left:34px; margin-bottom:8px}
+  .start li::before{content:counter(step); position:absolute; left:0; top:.1em;
+                    width:22px; height:22px; border-radius:50%; background:var(--livrea-tint);
+                    color:var(--livrea-deep); font-family:var(--mono); font-size:12.5px;
+                    font-weight:700; display:flex; align-items:center; justify-content:center}
+  .start b{color:var(--livrea-deep); font-weight:600}
+  .start + .pitch{margin-top:22px}
 
   /* ---------- the copy-paste command: the box's own first step ---------- */
   .cmd{margin-top:clamp(30px,6vw,42px); max-width:760px}
@@ -294,27 +304,19 @@
       <b>Wollie</b>
     </div>
 
-    <!-- ⚠ THE HEADLINE IS NOT THE ASSISTANT SPEAKING. It used to read "Hey, this is Wollie." —
-         first person for the assistant, which the copy rules ban outright, and the largest type
-         on the page saying nothing a stranger could act on. "I" on this page is Simone. -->
-    <h1>A household assistant that lives in your house.</h1>
+    <!-- ⚠ THE HEADLINE IS NOT THE ASSISTANT SPEAKING. "I" on this page is Simone.
+         ⚠ AND IT STARTS ON THE PHONE (2026-10-11). It used to open on the house and the Raspberry
+         Pi, and a reader who had come from a post about the family's mail and calendar concluded
+         they had to buy hardware first — while the TestFlight page said the app stopped at its
+         first screen without a box. The phone is the door with nothing to buy; the box is what
+         it grows into, and comes second. -->
+    <h1>A household assistant that starts on your iPhone.</h1>
 
     <p class="pitch">
-      I built Wollie for my own family, because I wanted an assistant that lives in the house
-      instead of in somebody's cloud. It thinks with
-      <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>, remembers what you
-      tell it, and keeps your diet, your projects, your documents, your calendar and what you hold
-      in crypto. Start on your iPhone. <b>No account to create.</b>
-    </p>
-    <p class="pitch">
-      Put a <a href="https://www.raspberrypi.com" target="_blank" rel="noopener">Raspberry Pi</a>
-      on your shelf and Wollie moves in: the family's email, the house's calendar, the home
-      automation, &ldquo;Hey&nbsp;Siri, ask Wollie&rdquo; — and it keeps working with your phone in
-      your pocket. <b>What it remembers lives on that box</b>, which you can unplug; what does
-      leave is named below, and on <a href="./privacy.html">the privacy page</a>.
-    </p>
-    <p class="pitch ask">
-      It's an open beta, and I'm looking for people who'd like to help make it more useful.
+      Ask it what's on tomorrow, tell it what you had for lunch, keep your projects and your
+      documents in one place. It thinks with
+      <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> and remembers what you
+      tell it. <b>No Raspberry Pi needed, no account to create.</b>
     </p>
 
     <div class="cta">
@@ -326,14 +328,30 @@
         <span class="count" id="gh-count" hidden></span>
       </a>
     </div>
-    <!-- THE INVITE CAVEAT LIVES HERE AND NOWHERE ELSE. It used to be told four times, in four
-         different phrasings, and it is most of why the page read long. The gateway's PRIVACY
-         consequences are a different subject and stay in the band below. -->
-    <p class="cta-note">
-      Free during the beta, through TestFlight. Without a box you'll need an invite code for the
-      shared server — it answers on my subscription — or your own Anthropic <b>API key</b> (a
-      Claude subscription is not enough on a phone). The app has a button to ask me for an
-      invite. Android: <a href="#apps">no app yet</a>.
+
+    <!-- THE INVITE CAVEAT LIVES HERE AND NOWHERE ELSE — now as the third step of three, because
+         «do I need an invite, how long, do I pay» is the question that stops people right after
+         the button. The gateway's PRIVACY consequences are a different subject and stay in the
+         band below. -->
+    <ol class="start" aria-label="How to start">
+      <li><b>Install TestFlight</b>, Apple's app for betas, from the App Store.</li>
+      <li><b>Open the beta link</b> on your iPhone and install Wollie.</li>
+      <li><b>Give it Claude.</b> Ask me for an invite from inside the app: it's free during the beta,
+        and I answer each request myself, as soon as I can. Or paste your own Anthropic API key and start right away
+        (a Claude subscription is not enough on a phone).</li>
+    </ol>
+
+    <p class="pitch">
+      I built Wollie for my own family. Put a
+      <a href="https://www.raspberrypi.com" target="_blank" rel="noopener">Raspberry Pi</a> on your
+      shelf and it moves in: the family's email, the house's calendar, the home automation,
+      &ldquo;Hey&nbsp;Siri, ask Wollie&rdquo;, and it keeps working with your phone in your pocket.
+      <b>What it remembers lives on that box</b>, which you can unplug; what does leave is named
+      below, and on <a href="./privacy.html">the privacy page</a>.
+    </p>
+    <p class="pitch ask">
+      It's an open beta, and I'm looking for people who'd like to help make it more useful.
+      Android: <a href="#apps">no app yet</a>.
     </p>
   </div>
 </header>
