@@ -74,13 +74,34 @@
          padding-block:28px; color:var(--muted); font-size:14.5px}
   .links{display:flex; flex-wrap:wrap; gap:18px; margin-bottom:12px}
   .fine{max-width:var(--measure); margin:0}
+  /* The top menu, the same on every page (2026-10-18: the changelog was reachable only from
+     the home's footer). */
+  .topnav{background:var(--panel); border-bottom:1px solid var(--line)}
+  .topnav .wrap{display:flex; align-items:center; gap:4px 22px; flex-wrap:wrap; min-height:52px;
+                padding-block:8px}
+  .topnav .brandlink{font-family:var(--serif); font-weight:600; font-size:18px; color:var(--ink);
+                     text-decoration:none; margin-right:auto}
+  .topnav .navlinks{display:flex; flex-wrap:wrap; gap:4px 18px; font-size:15px}
+  .topnav .navlinks a{color:var(--muted); text-decoration:none; padding:6px 0}
+  .topnav .navlinks a:hover, .topnav .navlinks a:focus-visible{color:var(--livrea-deep)}
+  .topnav .navlinks a[aria-current="page"]{color:var(--livrea-deep); font-weight:600}
 </style>
 </head>
 <body>
 
+<nav class="topnav" aria-label="Site">
+  <div class="wrap">
+    <a class="brandlink" href="./">Wollie</a>
+    <div class="navlinks">
+      <a href="./">Home</a>
+      <a href="./changelog.html">What's new</a>
+      <a href="https://github.com/simonerom/Wollie-releases/blob/main/FLASHING.md">Get started</a>
+      <a href="./privacy.html" aria-current="page">Privacy</a>
+    </div>
+  </div>
+</nav>
 <header>
   <div class="wrap col">
-    <p class="eyebrow"><a class="home" href="./">&larr; Wollie</a></p>
     <h1>Privacy</h1>
     <p class="lede">
       Wollie runs on your smartphone, or on a small computer you own, in your house. There is no account to create and
