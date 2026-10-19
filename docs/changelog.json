@@ -1,5 +1,29 @@
 [
   {
+    "id": "box-0.7.1",
+    "kind": "box",
+    "title": "Box update 0.7.1",
+    "date": "2026-10-19",
+    "summary": "Choose the brain from the Wollie app and control home devices directly. This is a software update for existing boxes, installed from the app without reflashing the SD card or removing household data.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "Brains from the app: sign in with Claude or ChatGPT, or configure Qwen, DeepSeek, Kimi or another compatible API provider. Choose a brain for chat and another for scheduled jobs, or use the same for both. Sign-in status and supported usage limits are shown in the app.",
+          "Home devices: live readings and switches in the list, with a detail page for all readings, manual controls, name and description. A device configured to ask before switching also asks when operated from the app.",
+          "Photos, scans, PDFs and office documents use the selected brain for reading. Archived document summaries use the brain selected for jobs. Readings stay separate from the chat's context.",
+          "Chat replies keep the final answer without repeating the text shown while Wollie is working. Accented letters are preserved.",
+          "The box installs the engine versions required by this release after restarting. The first installation can take a few minutes; leave the box powered and connected."
+        ]
+      }
+    ],
+    "note": "**For a new box, start with [image 0.7.0](https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0), then install this update from the app. Images older than 0.7.0 cannot update from the app. The new brain settings and manual device controls need app build 159 or later; older apps keep working.**",
+    "get": {
+      "label": "Install it from the Wollie app (Me tab)",
+      "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.1"
+    }
+  },
+  {
     "id": "ios-156",
     "kind": "ios",
     "title": "Build 156",
@@ -105,7 +129,8 @@
     "get": {
       "label": "Install it from the Wollie app (Me tab)",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.6.1"
-    }
+    },
+    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
   },
   {
     "id": "ios-150",
@@ -205,7 +230,8 @@
     "get": {
       "label": "Release page and download",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.6.0"
-    }
+    },
+    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
   },
   {
     "id": "box-0.5.0",
@@ -218,6 +244,7 @@
     "get": {
       "label": "Release page and download",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.5.0"
-    }
+    },
+    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
   }
 ]

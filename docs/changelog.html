@@ -118,6 +118,16 @@
 
 <main class="wrap" id="main">
 
+<article class="entry box" id="box-0.7.1">
+  <p class="meta"><span class="tag">Box update</span><time datetime="2026-10-19">19 October 2026</time></p>
+  <h2><a class="anchor" href="#box-0.7.1">Box update 0.7.1</a></h2>
+  <p class="summary">Choose the brain from the Wollie app and control home devices directly. This is a software update for existing boxes, installed from the app without reflashing the SD card or removing household data.</p>
+  <h3>What&#x27;s new</h3>
+  <ul><li><b>Brains from the app.</b> Sign in with Claude or ChatGPT, or configure Qwen, DeepSeek, Kimi or another compatible API provider. Choose a brain for chat and another for scheduled jobs, or use the same for both. Sign-in status and supported usage limits are shown in the app.</li><li><b>Home devices.</b> Live readings and switches in the list, with a detail page for all readings, manual controls, name and description. A device configured to ask before switching also asks when operated from the app.</li><li>Photos, scans, PDFs and office documents use the selected brain for reading. Archived document summaries use the brain selected for jobs. Readings stay separate from the chat's context.</li><li>Chat replies keep the final answer without repeating the text shown while Wollie is working. Accented letters are preserved.</li><li>The box installs the engine versions required by this release after restarting. The first installation can take a few minutes; leave the box powered and connected.</li></ul>
+  <p class="note"><b>For a new box, start with <a href="https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0">image 0.7.0</a>, then install this update from the app. Images older than 0.7.0 cannot update from the app. The new brain settings and manual device controls need app build 159 or later; older apps keep working.</b></p>
+  <p class="get"><a href="https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.1">Install it from the Wollie app (Me tab) &rarr;</a> · <a href="https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.1">Link to this entry</a></p>
+</article>
+
 <article class="entry ios" id="ios-156">
   <p class="meta"><span class="tag">iPhone app</span><time datetime="2026-10-18">18 October 2026</time></p>
   <h2><a class="anchor" href="#ios-156">Build 156</a></h2>
@@ -144,13 +154,14 @@
 <article class="entry ios" id="ios-151">
   <p class="meta"><span class="tag">iPhone app</span><time datetime="2026-10-11">11 October 2026</time></p>
   <h2><a class="anchor" href="#ios-151">Build 151</a></h2>
-  <p class="summary">The same app as build 150, published again so TestFlight's page shows its new description: Wollie starts on your iPhone, no Raspberry Pi needed. What's new is in [build 150](#ios-150).</p>
+  <p class="summary">The same app as build 150, published again so TestFlight's page shows its new description: Wollie starts on your iPhone, no Raspberry Pi needed. What's new is in <a href="#ios-150">build 150</a>.</p>
   <p class="get"><a href="https://testflight.apple.com/join/kft9Hhv3">Join the TestFlight beta &rarr;</a> · <a href="https://simonerom.github.io/Wollie-releases/changelog.html#ios-151">Link to this entry</a></p>
 </article>
 
 <article class="entry box" id="box-0.6.1">
-  <p class="meta"><span class="tag">Box image</span><time datetime="2026-10-11">11 October 2026</time></p>
+  <p class="meta"><span class="tag">Box update</span><time datetime="2026-10-11">11 October 2026</time></p>
   <h2><a class="anchor" href="#box-0.6.1">Box update 0.6.1</a></h2>
+  <p class="note installation-hint"><b>New installation:</b> do not start from an image older than 0.7.0. Use <a href="https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0">image 0.7.0</a>, then install updates from the Wollie app. Earlier images cannot update from the app.</p>
   <p class="summary">The first update for the box that installs from the app: the box's owner sees it on the Me tab and taps Update now. Wollie is offline for about a minute while the box restarts, and your data stays where it is.</p>
   <h3>What&#x27;s new</h3>
   <ul><li><b>Several chats.</b> Start a new one for each topic, and Wollie names it after your first message.</li><li>Scheduled jobs can search the web when their web switch is on, and open pages only on the sites you allow with a tap.</li><li><b>Verified senders.</b> An attachment from a trusted sender downloads by itself only when the sender's own mail provider confirms who sent it. Anything else asks you first.</li><li><b>Box updates from the app.</b> When a new version is ready, the owner installs it with one tap. If the new version doesn't start, the box goes back by itself to how it was before the update.</li><li><b>Under the hood.</b> Dependencies pinned with hashes, a sturdier way to ship code to the box, and many fixes from code reviews.</li></ul>
@@ -173,6 +184,7 @@
 <article class="entry box" id="box-0.6.0">
   <p class="meta"><span class="tag">Box image</span><time datetime="2026-10-03">3 October 2026</time></p>
   <h2><a class="anchor" href="#box-0.6.0">Box image 0.6.0</a></h2>
+  <p class="note installation-hint"><b>New installation:</b> do not start from an image older than 0.7.0. Use <a href="https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0">image 0.7.0</a>, then install updates from the Wollie app. Earlier images cannot update from the app.</p>
   <p class="summary">The box image for Wollie 0.6.0. Flash it with the one-line command on the <a href="https://simonerom.github.io/Wollie-releases/#box">site</a>, or with Raspberry Pi Imager and <code>wollie-repo.json</code>.</p>
   <h3>What&#x27;s new</h3>
   <ul><li><b>Reminders.</b> Something you have to do, with fixed words, that rings by itself at its time, without asking the AI. Alerts before it's due ("the day before at 17:00", "2 hours before"), repeats, tags, and buttons on the notification to mark it done or snooze it. Today's are on the app's Today tab.</li><li><b>Portfolio.</b> Accounts, made of wallets read from their chain or amounts you type for an exchange, with a balance chart in dollars, euros or bitcoin and how it splits. Ten chains now: Bitcoin, Ethereum, Polygon, BNB Chain, Base, Arbitrum, Optimism, Solana, Sui and IoTeX, and a 0x address is read on every one of those that uses it. Each coin has a Market section, and the box re-reads the wallets every hour.</li><li><b>Signed requests.</b> At home the app talks to the box over plain HTTP. With app build 147 or later, every request is now signed with a key that stays on the phone, so someone on your Wi-Fi can no longer act as you. It does not hide the traffic: <a href="https://simonerom.github.io/Wollie-releases/privacy.html#security">the privacy page</a> says exactly what is and isn't covered.</li><li><b>Emails you can correct on the confirmation card.</b> You can change the subject and text before the email goes. The recipients can't be changed there.</li><li><b>A general off switch</b> for the box's owner, in the console and in the app. Off means no AI calls and no scheduled jobs; reminders still ring.</li><li><b>Scheduled jobs</b> follow any calendar rule, on the household's clock, and a run missed while the box was off is made up.</li><li><b>The brain</b> can be Claude or, to experiment, an endpoint of your own that speaks the same API.</li><li>The box's Claude command-line tool sends no telemetry, error reports or update checks.</li></ul>
@@ -183,6 +195,7 @@
 <article class="entry box" id="box-0.5.0">
   <p class="meta"><span class="tag">Box image</span><time datetime="2026-09-20">20 September 2026</time></p>
   <h2><a class="anchor" href="#box-0.5.0">Box image 0.5.0</a></h2>
+  <p class="note installation-hint"><b>New installation:</b> do not start from an image older than 0.7.0. Use <a href="https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0">image 0.7.0</a>, then install updates from the Wollie app. Earlier images cannot update from the app.</p>
   <p class="summary">The first box image under the name Wollie — before, it was called Ambrogio. Flash it with Raspberry Pi Imager or the one-line command on the site.</p>
   <p class="get"><a href="https://github.com/simonerom/Wollie-releases/releases/tag/v0.5.0">Release page and download &rarr;</a> · <a href="https://simonerom.github.io/Wollie-releases/changelog.html#box-0.5.0">Link to this entry</a></p>
 </article>
