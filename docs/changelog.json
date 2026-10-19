@@ -1,5 +1,44 @@
 [
   {
+    "id": "ios-159",
+    "kind": "ios",
+    "title": "Build 159",
+    "date": "2026-10-20",
+    "summary": "Choose the brain for chat and jobs from the app, control home devices directly, and read scans with your ChatGPT subscription.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "Me, Brains: sign in with Claude or ChatGPT, or configure an API provider. Choose a brain for chat and scheduled jobs, with sign-in status and supported usage limits.",
+          "Me, Home devices: updated readings and switches in the list; tap a device for all readings, manual controls, name and description. Protected devices ask for confirmation when operated from the app too.",
+          "Photos, scans, PDFs, Word, OpenDocument and RTF use the selected brain for reading. Fixed scan reading and the creation of summaries for archived documents.",
+          "Chat replies keep the final answer without repeating the text shown while Wollie is working. Accented letters are preserved."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to try",
+        "items": [
+          "Me, Brains: check the available brains and the choices for chat and jobs.",
+          "Me, Home devices: open a device and check its readings and controls.",
+          "Send a scan, ask Wollie to read and keep it, then find it in Documents with the date printed on the paper."
+        ],
+        "ordered": true
+      },
+      {
+        "title": "The box",
+        "items": [
+          "Install box update 0.7.1 from the app to use these new features. For a new box, start with image 0.7.0, then update from the app. Images older than 0.7.0 cannot update from the app."
+        ],
+        "ordered": false
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    }
+  },
+  {
     "id": "box-0.7.1",
     "kind": "box",
     "title": "Box update 0.7.1",
