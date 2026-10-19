@@ -28,7 +28,7 @@
       {
         "title": "The box",
         "items": [
-          "Install box update 0.7.1 from the app to use these new features. For a new box, start with image 0.7.0, then update from the app. Images older than 0.7.0 cannot update from the app."
+          "Install box update 0.7.1 from the app to use these new features. For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then update from the app. Images older than 0.7.0 cannot update from the app."
         ],
         "ordered": false
       }
@@ -56,7 +56,7 @@
         ]
       }
     ],
-    "note": "**For a new box, start with [image 0.7.0](https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0), then install this update from the app. Images older than 0.7.0 cannot update from the app. The new brain settings and manual device controls need app build 159 or later; older apps keep working.**",
+    "note": "**For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install this update from the app. Images older than 0.7.0 cannot update from the app. The new brain settings and manual device controls need app build 159 or later; older apps keep working.**",
     "get": {
       "label": "Install it from the Wollie app (Me tab)",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.1"
@@ -67,7 +67,7 @@
     "kind": "ios",
     "title": "Build 156",
     "date": "2026-10-18",
-    "summary": "Calendars and home devices are set up from the app now, several appointments become one confirmation, and you can edit an earlier message and carry on from there. Your box updates from the app too, and there is a new box image to start from, 0.7.0.",
+    "summary": "Calendars and home devices are set up from the app now, several appointments become one confirmation, and you can edit an earlier message and carry on from there. Your box updates from the app too, and there is a new box image to start from, [0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0).",
     "sections": [
       {
         "title": "What's new",
@@ -97,7 +97,7 @@
       {
         "title": "The box",
         "items": [
-          "Image 0.7.0 is the one to flash on a new box: from then on it updates from the app. A box flashed with an earlier image cannot update from the app."
+          "[Image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0) is the one to flash on a new box: from then on it updates from the app. A box flashed with an earlier image cannot update from the app."
         ],
         "ordered": false
       }
@@ -169,7 +169,7 @@
       "label": "Install it from the Wollie app (Me tab)",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.6.1"
     },
-    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
+    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
   },
   {
     "id": "ios-150",
@@ -270,7 +270,7 @@
       "label": "Release page and download",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.6.0"
     },
-    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
+    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
   },
   {
     "id": "box-0.5.0",
@@ -284,6 +284,6 @@
       "label": "Release page and download",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.5.0"
     },
-    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
+    "installation_hint": "**New installation:** do not start from an image older than 0.7.0. Use [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the Wollie app. Earlier images cannot update from the app."
   }
 ]
