@@ -36,7 +36,30 @@
     "get": {
       "label": "Join the TestFlight beta",
       "url": "https://testflight.apple.com/join/kft9Hhv3"
-    }
+    },
+    "images": [
+      {
+        "src": "changelog/ios-159/brains.jpg",
+        "caption": "Choose separate brains for chat and scheduled jobs; check sign-in status and usage. Simulator screenshots with demo data.",
+        "alt": "The Brain screen with ChatGPT selected for chat, Qwen for scheduled jobs, and Claude and ChatGPT usage bars.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-159/home-devices.jpg",
+        "caption": "Switch lights from the list and see temperatures and energy readings at a glance.",
+        "alt": "The Home devices screen showing two light switches, a radiator temperature and a home energy meter.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-159/radiator.jpg",
+        "caption": "Set a radiator’s target temperature from its page, with room temperature, valve opening and battery readings.",
+        "alt": "A radiator detail page showing 20.5 degrees in the room, a target of 21.5 degrees ready to apply, valve opening and battery level.",
+        "w": 639,
+        "h": 1387
+      }
+    ]
   },
   {
     "id": "box-0.7.1",
@@ -60,7 +83,30 @@
     "get": {
       "label": "Install it from the Wollie app (Me tab)",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.1"
-    }
+    },
+    "images": [
+      {
+        "src": "changelog/box-0.7.1/brains.jpg",
+        "caption": "Choose separate brains for chat and scheduled jobs; check sign-in status and usage. Simulator screenshots with demo data.",
+        "alt": "The Brain screen with ChatGPT selected for chat, Qwen for scheduled jobs, and Claude and ChatGPT usage bars.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/box-0.7.1/home-devices.jpg",
+        "caption": "Switch lights from the list and see temperatures and energy readings at a glance.",
+        "alt": "The Home devices screen showing two light switches, a radiator temperature and a home energy meter.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/box-0.7.1/radiator.jpg",
+        "caption": "Set a radiator’s target temperature from its page, with room temperature, valve opening and battery readings.",
+        "alt": "A radiator detail page showing 20.5 degrees in the room, a target of 21.5 degrees ready to apply, valve opening and battery level.",
+        "w": 639,
+        "h": 1387
+      }
+    ]
   },
   {
     "id": "ios-156",
@@ -105,7 +151,23 @@
     "get": {
       "label": "Join the TestFlight beta",
       "url": "https://testflight.apple.com/join/kft9Hhv3"
-    }
+    },
+    "images": [
+      {
+        "src": "changelog/ios-156/calendars.jpg",
+        "caption": "Connect iCloud or another CalDAV calendar, see its calendars, and decide whether Wollie asks before writing. Simulator screenshots with demo data.",
+        "alt": "The Calendars screen with a connected demonstration iCloud account, Personal and Family calendars, and Ask before writing enabled.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-156/calendar-events.jpg",
+        "caption": "Review several appointments in one panel: untick the ones you do not want, then confirm only the selected events.",
+        "alt": "A grouped calendar approval with three proposed appointments, two ticked, and a Confirm 2 selected button.",
+        "w": 639,
+        "h": 1387
+      }
+    ]
   },
   {
     "id": "box-0.7.0",
@@ -132,7 +194,23 @@
     "get": {
       "label": "Release page and download",
       "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.0"
-    }
+    },
+    "images": [
+      {
+        "src": "changelog/box-0.7.0/calendars.jpg",
+        "caption": "Connect iCloud or another CalDAV calendar, see its calendars, and decide whether Wollie asks before writing. Simulator screenshots with demo data.",
+        "alt": "The Calendars screen with a connected demonstration iCloud account, Personal and Family calendars, and Ask before writing enabled.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/box-0.7.0/calendar-events.jpg",
+        "caption": "Review several appointments in one panel: untick the ones you do not want, then confirm only the selected events.",
+        "alt": "A grouped calendar approval with three proposed appointments, two ticked, and a Confirm 2 selected button.",
+        "w": 639,
+        "h": 1387
+      }
+    ]
   },
   {
     "id": "ios-151",
