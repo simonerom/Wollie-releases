@@ -1,5 +1,124 @@
 [
   {
+    "id": "ios-161",
+    "kind": "ios",
+    "title": "Build 161",
+    "date": "2026-10-21",
+    "summary": "Share documents from other apps, manage Shelly gateways and identify temporary files before they expire.",
+    "sections": [
+      {
+        "title": "What’s new",
+        "items": [
+          "Documents shared from Mail, AirDrop and file previews reach the composer, including temporary files. Import failures show an explanation.",
+          "Attachment buttons adapt to screen width and text size, with readable labels.",
+          "Home devices are grouped under their gateway. “Find connected devices” is available in the gateway detail, and hides devices already added. Devices that need reconnection remain visible. Currently supports BLU TRV valves paired in Shelly.",
+          "Reconnect a Shelly after an address change without losing its name or confirmation settings.",
+          "File-expiry messages show the planned deletion date and explain that you have not asked Wollie to keep the file. Open its preview and see the reader’s description when available. Old warnings also gain a file preview."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to test",
+        "items": [
+          "Share a PDF from Mail or an AirDrop preview with Wollie open, in the background and closed. Check that only one attachment is ready before sending.",
+          "Increase text size and open the attachment menu: Photo, Camera, Scan and File should stay readable.",
+          "In Me → Home devices, check that valves appear under the correct gateway. Open its detail, find connected devices and add one: it should disappear from discovery results. Repeat network discovery: registered devices at their current address should be hidden.",
+          "When a temporary-file warning arrives, open its preview, check the description and deadline, then tap Keep it. An already expired file should show a clear explanation."
+        ],
+        "ordered": true
+      },
+      {
+        "title": "The box",
+        "items": [
+          "Gateway discovery and the new file-expiry messages need box update 0.7.2. Device grouping, document sharing and previews in old warnings are app changes.",
+          "For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then update from the app. Images older than 0.7.0 cannot update from the app."
+        ],
+        "ordered": false
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    },
+    "images": [
+      {
+        "src": "changelog/ios-161/grouped-devices.jpg",
+        "caption": "Devices grouped under their gateway; tap a device to see its readings and controls.",
+        "alt": "Home devices with a radiator indented under its Bluetooth gateway.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-161/gateway-discovery-current.jpg",
+        "caption": "Find connected devices from the gateway detail. Already registered valves are hidden; the current integration supports BLU TRV valves paired in Shelly.",
+        "alt": "Gateway detail showing one new radiator valve to add.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-161/file-warning-current.jpg",
+        "caption": "A planned deletion date, a recognizable description and a file preview you can open. Screenshot uses invented sample data.",
+        "alt": "Temporary-file warning with a PDF attachment, content description and Keep it button.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-161/shared-document-final.jpg",
+        "caption": "A shared document is ready in the message composer, with a single attachment.",
+        "alt": "Chat composer containing one shared PDF attachment.",
+        "w": 639,
+        "h": 1387
+      }
+    ]
+  },
+  {
+    "id": "box-0.7.2",
+    "kind": "box",
+    "title": "Box update 0.7.2",
+    "date": "2026-10-21",
+    "summary": "Recover Shelly gateways after an address change, add paired radiator valves, and recognize temporary chat files before they expire. Install this software update from the app without reflashing the SD card.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "Network discovery recognizes a known Shelly by its hardware address and offers to reconnect it at its new address. Device names and confirmation settings are preserved. Already registered devices at their current address are hidden.",
+          "The gateway detail in the app offers **Find connected devices**. Currently, Wollie imports **BLU TRV radiator valves already paired in Shelly**, including multiple valves per gateway. Discovery shows devices still to add or reconnect, and hides registrations that are already complete.",
+          "Valves retain their gateway association and can be recovered after a gateway was removed and added again. Both gateway and valve identities are checked; a temperature command checks the valve identity before sending.",
+          "Shelly energy meters with BTHome components and a contactor relay, including Pro EM-50, are correctly identified as meters.",
+          "Temporary-file warnings explain that the file has not been requested for permanent storage, show a planned deletion date and time, and include an attachment you can open. A single-file reader's description is retained for future warnings when available. Existing files may have no saved description. Warnings respect the longer lifetime of files still protected by a recent analysis session."
+        ]
+      }
+    ],
+    "note": "**Use app build 161 or later for grouped gateway devices, discovery in gateway details, and previews in older file warnings. Older apps keep working. Pair new valves with their gateway in Shelly first, then add them in Wollie. For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install this update from the app. Images older than 0.7.0 cannot update from the app.**",
+    "get": {
+      "label": "Install it from the Wollie app (Me tab)",
+      "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.2"
+    },
+    "images": [
+      {
+        "src": "changelog/box-0.7.2/grouped-devices.jpg",
+        "caption": "Devices grouped under their gateway; tap a device to see its readings and controls. Shown with app build 161.",
+        "alt": "Home devices with a radiator indented under its Bluetooth gateway.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/box-0.7.2/gateway-discovery-current.jpg",
+        "caption": "Find connected devices from the gateway detail. Already registered valves are hidden; the current integration supports BLU TRV valves paired in Shelly. Shown with app build 161.",
+        "alt": "Gateway detail showing one new radiator valve to add.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/box-0.7.2/file-warning-current.jpg",
+        "caption": "A planned deletion date, a recognizable description and a file preview you can open. Screenshot uses invented sample data. Shown with app build 161.",
+        "alt": "Temporary-file warning with a PDF attachment, content description and Keep it button.",
+        "w": 639,
+        "h": 1387
+      }
+    ]
+  },
+  {
     "id": "ios-159",
     "kind": "ios",
     "title": "Build 159",
