@@ -118,6 +118,20 @@
 
 <main class="wrap" id="main">
 
+<article class="entry ios" id="ios-162">
+  <p class="meta"><span class="tag">iPhone app</span><time datetime="2026-10-21">21 October 2026</time></p>
+  <h2><a class="anchor" href="#ios-162">Build 162</a></h2>
+  <p class="summary">See what needs your attention from any screen, with a badge on Me.</p>
+  <div class="shots"><figure><a href="changelog/ios-162/me-attention-tab.jpg"><img src="changelog/ios-162/me-attention-tab.jpg" alt="Chat with a badge of three on the Me tab." width="639" height="1387" loading="lazy"></a><figcaption>A badge on Me shows how many actions you can take, from any tab. Simulator screenshot with invented sample data.</figcaption></figure><figure><a href="changelog/ios-162/me-attention-details.jpg"><img src="changelog/ios-162/me-attention-details.jpg" alt="Me showing a box update, an email account warning and a total of three actions." width="639" height="1387" loading="lazy"></a><figcaption>Opening Me keeps the badge. The update card and account counters show where to act; a selected brain needing attention has its own counter further down.</figcaption></figure><figure><a href="changelog/ios-162/me-attention-resolved.jpg"><img src="changelog/ios-162/me-attention-resolved.jpg" alt="Chat after all actions have been resolved, with no badge on Me." width="639" height="1387" loading="lazy"></a><figcaption>Once the actions are resolved, the badge disappears. It also refreshes when you return after resolving something from another device.</figcaption></figure></div>
+  <h3>What’s new</h3>
+  <ul><li>Me shows the number of actions you can take: an installable box update, your own email accounts that need reconnection, and selected chat or jobs brains that need setup or access.</li><li>Opening Me keeps the badge until the actions are resolved. Starting an update removes that action; if it fails and can be retried, it returns. An installed update removes it.</li><li>Reconnecting or removing an email account, signing in to a brain, or choosing a ready one refreshes the count. A brain used by both chat and jobs counts once.</li><li>The badge and Me cards use the same state. Checks run while the app is active, on return and after reconnection. Old replies cannot bring back resolved warnings or data from a previous pairing.</li><li>Temporary network failures, usage limits that reset themselves and unused brains do not create actions. Screen-reader labels explain the count in the app’s language.</li></ul>
+  <h3>What to test</h3>
+  <ol><li>With a box update available, stay in Chat: Me should show a badge. Open Me and return: the badge should remain until you start or complete the update.</li><li>Resolve an owned email account’s authentication problem, test it or remove it. Its count should disappear after the box confirms the new state.</li><li>Sign in to a selected brain or choose a ready one. Check that the count falls; an unused brain or a temporary usage limit should not add a badge.</li><li>Put the app in the background, resolve an action from another device and return. The badge should refresh. Unpair: no box badge should remain in Solo mode.</li></ol>
+  <h3>The box</h3>
+  <ul><li>This is an app update. No new box release or SD-card image is needed. It uses the settings APIs supported by your box; unsupported features are skipped.</li><li>For a new box, start with <a href="https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0">image 0.7.0</a>, then install box updates from the app.</li></ul>
+  <p class="get"><a href="https://testflight.apple.com/join/kft9Hhv3">Join the TestFlight beta &rarr;</a> · <a href="https://simonerom.github.io/Wollie-releases/changelog.html#ios-162">Link to this entry</a></p>
+</article>
+
 <article class="entry ios" id="ios-161">
   <p class="meta"><span class="tag">iPhone app</span><time datetime="2026-10-21">21 October 2026</time></p>
   <h2><a class="anchor" href="#ios-161">Build 161</a></h2>
