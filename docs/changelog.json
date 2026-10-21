@@ -137,6 +137,28 @@
     ]
   },
   {
+    "id": "box-0.7.3",
+    "kind": "box",
+    "title": "Box update 0.7.3",
+    "date": "2026-10-21",
+    "summary": "Wollie can choose the useful text to copy from your request, including a draft email's subject and body, directly where it belongs in the reply.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "All box brains receive guidance to mark self-contained copy targets according to the user's intent, without a fixed list of field types. Short values use ordinary Markdown code spans; complete drafts use text blocks that keep paragraphs and signature.",
+          "An email draft can offer recipient, subject and body separately. Labels, explanations and final comments stay outside the copied text. The same approach works for messages, titles, search queries and other reusable text.",
+          "No new API field or database migration is required. Older apps continue to receive readable Markdown replies. This is an instruction to the AI: the targets it chooses depend on the reply it generates."
+        ]
+      }
+    ],
+    "note": "**Use app build 163 or later for inline highlights, copy icons, tappable text and complete draft blocks. The app also recognizes common values in older replies without repeating chips at the bottom. Solo includes the new guidance in app build 163.** This is a signed software update installed from the app. No new SD-card image is needed. For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the app. Images older than 0.7.0 cannot update from the app.",
+    "get": {
+      "label": "Install it from the Wollie app (Me tab)",
+      "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.3"
+    }
+  },
+  {
     "id": "box-0.7.2",
     "kind": "box",
     "title": "Box update 0.7.2",
