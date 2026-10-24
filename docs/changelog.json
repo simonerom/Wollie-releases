@@ -1,5 +1,41 @@
 [
   {
+    "id": "ios-167",
+    "kind": "ios",
+    "title": "Build 167",
+    "date": "2026-10-24",
+    "summary": "The back arrow at the top of a page works again on iOS 27.",
+    "sections": [
+      {
+        "title": "What’s new",
+        "items": [
+          "On iOS 27 the system back arrow at the top of a pushed page could stop responding (Home devices and other pages): the page still worked, but there was no way out without restarting the app. On iOS 26 and later the app now draws that arrow itself, in the same place and look; swiping from the left edge still goes back too."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to test",
+        "items": [
+          "Open Me, Home devices, then a device, and stay on it for a couple of minutes while its readings update. Tap the back arrow: it should go back every time.",
+          "Repeat on other pages with a back arrow (Calendars, Email accounts, a job, a project page).",
+          "Swipe from the left edge to go back on the same pages."
+        ],
+        "ordered": true
+      },
+      {
+        "title": "The box",
+        "items": [
+          "No box update needed for this build. Box update 0.7.5 brings Sign in with Google (166)."
+        ],
+        "ordered": false
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    }
+  },
+  {
     "id": "ios-166",
     "kind": "ios",
     "title": "Build 166",
