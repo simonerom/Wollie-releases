@@ -118,6 +118,19 @@
 
 <main class="wrap" id="main">
 
+<article class="entry ios" id="ios-166">
+  <p class="meta"><span class="tag">iPhone app</span><time datetime="2026-10-24">24 October 2026</time></p>
+  <h2><a class="anchor" href="#ios-166">Build 166</a></h2>
+  <p class="summary">Connect Gmail and Google Calendar by signing in with Google, work accounts included.</p>
+  <h3>What’s new</h3>
+  <ul><li>Sign in with Google for mail: Me, Email accounts, “Sign in with Google”. It works for Google Workspace accounts, where the organisation does not allow app passwords. Your box keeps the sign-in; the phone never holds a Google token.</li><li>Sign in with Google for calendars: Me, Calendars. Wollie reads your Google calendars and creates or deletes events on them, with alarms, like on iCloud.</li><li>Signing in again with the same address reconnects the existing account. A Gmail that used an app password moves to Google sign-in and keeps its folders.</li><li>Google may say it has not verified Wollie: tap Advanced, then continue to Wollie. A Google Workspace admin may need to trust Wollie in the Admin console.</li></ul>
+  <h3>What to test</h3>
+  <ol><li>Me, Email accounts, Sign in with Google: pick a Gmail or a work account, allow, and check the account appears with a Google tag. Ask Wollie for your latest mail from it.</li><li>Me, Calendars, Sign in with Google: then ask Wollie what is on your calendar this week, and to add a test event with an alarm.</li><li>On the consent page, untick the mail box: the app should say access was not granted, and add nothing.</li><li>Ask Wollie to draft and send a test mail from the Google account: it should appear once in Sent.</li></ol>
+  <h3>The box</h3>
+  <ul><li>Install box update 0.7.5 from the app: the buttons appear only with it. Older boxes keep working with this build, without Google sign-in.</li><li>No new SD-card image is needed. For a new box, start with <a href="https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0">image 0.7.0</a>, then install updates from the app.</li></ul>
+  <p class="get"><a href="https://testflight.apple.com/join/kft9Hhv3">Join the TestFlight beta &rarr;</a> · <a href="https://simonerom.github.io/Wollie-releases/changelog.html#ios-166">Link to this entry</a></p>
+</article>
+
 <article class="entry ios" id="ios-165">
   <p class="meta"><span class="tag">iPhone app</span><time datetime="2026-10-24">24 October 2026</time></p>
   <h2><a class="anchor" href="#ios-165">Build 165</a></h2>
