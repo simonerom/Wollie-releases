@@ -118,6 +118,30 @@
 
 <main class="wrap" id="main">
 
+<article class="entry ios" id="ios-165">
+  <p class="meta"><span class="tag">iPhone app</span><time datetime="2026-10-24">24 October 2026</time></p>
+  <h2><a class="anchor" href="#ios-165">Build 165</a></h2>
+  <p class="summary">Wollie opens again on iOS 27. Paste a photo or a file to attach it, divide a project into categories, and copy useful text right where it appears in the reply.</p>
+  <div class="shots"><figure><a href="changelog/ios-165/project.jpg"><img src="changelog/ios-165/project.jpg" alt="The Substitute teaching project page listing two categories, Hillview Agricultural Institute and Lakeside High School, above the facts filed at the project level." width="639" height="1387" loading="lazy"></a><figcaption>A project with two categories: each school keeps its own facts and documents.</figcaption></figure><figure><a href="changelog/ios-165/category.jpg"><img src="changelog/ios-165/category.jpg" alt="The Hillview Agricultural Institute category page with three facts and the Add, Rename this category and Delete category buttons." width="639" height="1387" loading="lazy"></a><figcaption>A category's own page, with rename and delete.</figcaption></figure><figure><a href="changelog/ios-165/copy-email.jpg"><img src="changelog/ios-165/copy-email.jpg" alt="A birthday email draft in the chat with copy icons beside the recipient, the subject and the body block." width="639" height="1387" loading="lazy"></a><figcaption>Copy in place: recipient, subject and body of a draft, each with its own copy icon.</figcaption></figure></div>
+  <h3>What’s new</h3>
+  <ul><li><b>iOS 27.</b> Builds made with the new SDK stopped at launch on phones updated to iOS 27.0.1. The app now uses the window lifecycle iOS 27 requires. Links, files opened in Wollie and shared files still reach the app, also when it was closed.</li><li><b>Paste to attach.</b> Copy a photo, a PDF or a file in another app, then Paste in the message field (or Cmd+V on the Mac and with a keyboard). It lands in the tray like a file picked with +. Text pastes as before.</li><li><b>Project categories.</b> A project can have named parts, for example one per school in a “Substitute teaching” project. Facts and documents stay at the project level or go into a category; Wollie can create categories, file into them and move items. Needs box update 0.7.4; Solo has it in this build.</li><li>Copy in place (first public since 162): useful values and text Wollie marks are highlighted with a copy icon in the reply. An email draft offers recipient, subject and body separately.</li></ul>
+  <h3>What to test</h3>
+  <ol><li>On iOS 27, open the app cold and from a wollie:// link or a file shared from Mail or AirDrop while the app is closed.</li><li>Copy a photo in Photos, open a chat, long-press the message field and choose Paste. Try two photos, and a PDF from Files.</li><li>Ask Wollie to create a project with two categories and to file a fact in one of them. Open the project page, open a category, move an item with “Change category”.</li><li>Ask for an email draft and copy subject and body separately.</li></ol>
+  <h3>The box</h3>
+  <ul><li>Install box update 0.7.4 from the app for project categories. Older boxes keep working with this build, without categories.</li><li>No new SD-card image is needed. For a new box, start with <a href="https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0">image 0.7.0</a>, then install updates from the app.</li></ul>
+  <p class="get"><a href="https://testflight.apple.com/join/kft9Hhv3">Join the TestFlight beta &rarr;</a> · <a href="https://simonerom.github.io/Wollie-releases/changelog.html#ios-165">Link to this entry</a></p>
+</article>
+
+<article class="entry box" id="box-0.7.4">
+  <p class="meta"><span class="tag">Box update</span><time datetime="2026-10-24">24 October 2026</time></p>
+  <h2><a class="anchor" href="#box-0.7.4">Box update 0.7.4</a></h2>
+  <p class="summary">Projects can be divided into categories: one project, several named parts, each with its own facts and documents.</p>
+  <h3>What&#x27;s new</h3>
+  <ul><li>A project can hold categories of one level, for example a “Substitute teaching” project with one category per school. Facts and documents can stay at the project's own level or go into a category.</li><li>Wollie can create a category when you name a part of the project that does not exist yet, file a fact or a document straight into it (also when keeping a document from mail or chat), move items between categories and rename or delete one. Deleting a category moves what it held back to the project: nothing is lost.</li><li>The project page lists the categories first; each category has its own page, search covers every category, and each item can be moved with “Change category”. Only the project's owner renames or deletes a category; a participant with write access can create one and move their own items.</li><li>The box adds the new table and column by itself at the first start after the update. No manual step.</li></ul>
+  <p class="note"><b>Categories work with every app build, because the project pages are drawn by the box. Use app build 165 or later for the rest of this release's news: the iOS 27 launch fix, paste to attach and copy in place.</b> This is a signed software update installed from the app. No new SD-card image is needed. For a new box, start with <a href="https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0">image 0.7.0</a>, then install updates from the app. Images older than 0.7.0 cannot update from the app.</p>
+  <p class="get"><a href="https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.4">Install it from the Wollie app (Me tab) &rarr;</a> · <a href="https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.4">Link to this entry</a></p>
+</article>
+
 <article class="entry ios" id="ios-162">
   <p class="meta"><span class="tag">iPhone app</span><time datetime="2026-10-21">21 October 2026</time></p>
   <h2><a class="anchor" href="#ios-162">Build 162</a></h2>

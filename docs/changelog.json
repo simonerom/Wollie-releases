@@ -1,5 +1,92 @@
 [
   {
+    "id": "ios-165",
+    "kind": "ios",
+    "title": "Build 165",
+    "date": "2026-10-24",
+    "summary": "Wollie opens again on iOS 27. Paste a photo or a file to attach it, divide a project into categories, and copy useful text right where it appears in the reply.",
+    "sections": [
+      {
+        "title": "What’s new",
+        "items": [
+          "iOS 27: builds made with the new SDK stopped at launch on phones updated to iOS 27.0.1. The app now uses the window lifecycle iOS 27 requires. Links, files opened in Wollie and shared files still reach the app, also when it was closed.",
+          "Paste to attach: copy a photo, a PDF or a file in another app, then Paste in the message field (or Cmd+V on the Mac and with a keyboard). It lands in the tray like a file picked with +. Text pastes as before.",
+          "Project categories: a project can have named parts, for example one per school in a «Substitute teaching» project. Facts and documents stay at the project level or go into a category; Wollie can create categories, file into them and move items. Needs box update 0.7.4; Solo has it in this build.",
+          "Copy in place (first public since 162): useful values and text Wollie marks are highlighted with a copy icon in the reply. An email draft offers recipient, subject and body separately."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to test",
+        "items": [
+          "On iOS 27, open the app cold and from a wollie:// link or a file shared from Mail or AirDrop while the app is closed.",
+          "Copy a photo in Photos, open a chat, long-press the message field and choose Paste. Try two photos, and a PDF from Files.",
+          "Ask Wollie to create a project with two categories and to file a fact in one of them. Open the project page, open a category, move an item with «Change category».",
+          "Ask for an email draft and copy subject and body separately."
+        ],
+        "ordered": true
+      },
+      {
+        "title": "The box",
+        "items": [
+          "Install box update 0.7.4 from the app for project categories. Older boxes keep working with this build, without categories.",
+          "No new SD-card image is needed. For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the app."
+        ],
+        "ordered": false
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    },
+    "images": [
+      {
+        "src": "changelog/ios-165/project.jpg",
+        "caption": "A project with two categories: each school keeps its own facts and documents.",
+        "alt": "The Substitute teaching project page listing two categories, Hillview Agricultural Institute and Lakeside High School, above the facts filed at the project level.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-165/category.jpg",
+        "caption": "A category's own page, with rename and delete.",
+        "alt": "The Hillview Agricultural Institute category page with three facts and the Add, Rename this category and Delete category buttons.",
+        "w": 639,
+        "h": 1387
+      },
+      {
+        "src": "changelog/ios-165/copy-email.jpg",
+        "caption": "Copy in place: recipient, subject and body of a draft, each with its own copy icon.",
+        "alt": "A birthday email draft in the chat with copy icons beside the recipient, the subject and the body block.",
+        "w": 639,
+        "h": 1387
+      }
+    ]
+  },
+  {
+    "id": "box-0.7.4",
+    "kind": "box",
+    "title": "Box update 0.7.4",
+    "date": "2026-10-24",
+    "summary": "Projects can be divided into categories: one project, several named parts, each with its own facts and documents.",
+    "sections": [
+      {
+        "title": "What's new",
+        "items": [
+          "A project can hold categories of one level, for example a «Substitute teaching» project with one category per school. Facts and documents can stay at the project's own level or go into a category.",
+          "Wollie can create a category when you name a part of the project that does not exist yet, file a fact or a document straight into it (also when keeping a document from mail or chat), move items between categories and rename or delete one. Deleting a category moves what it held back to the project: nothing is lost.",
+          "The project page lists the categories first; each category has its own page, search covers every category, and each item can be moved with «Change category». Only the project's owner renames or deletes a category; a participant with write access can create one and move their own items.",
+          "The box adds the new table and column by itself at the first start after the update. No manual step."
+        ]
+      }
+    ],
+    "note": "**Categories work with every app build, because the project pages are drawn by the box. Use app build 165 or later for the rest of this release's news: the iOS 27 launch fix, paste to attach and copy in place.** This is a signed software update installed from the app. No new SD-card image is needed. For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the app. Images older than 0.7.0 cannot update from the app.",
+    "get": {
+      "label": "Install it from the Wollie app (Me tab)",
+      "url": "https://github.com/simonerom/Wollie-releases/releases/tag/v0.7.4"
+    }
+  },
+  {
     "id": "ios-162",
     "kind": "ios",
     "title": "Build 162",
