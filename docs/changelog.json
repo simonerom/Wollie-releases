@@ -1,5 +1,44 @@
 [
   {
+    "id": "ios-171",
+    "kind": "ios",
+    "title": "Build 171",
+    "date": "2026-10-25",
+    "summary": "Every radiator at once, to its minimum or maximum with one tap.",
+    "sections": [
+      {
+        "title": "What’s new",
+        "items": [
+          "All radiators together: in Home devices the «Radiators» card sets them all to their minimum or maximum with a single tap, in parallel. If any of them has «Ask before switching», there is one question for all. If one does not answer, you are told which.",
+          "On a radiator's page, «Min» and «Max» set it to either end at once, without scrolling the ruler.",
+          "When you ask Wollie to «turn off all the radiators», the command goes to all of them at the same time instead of one after another, with one confirmation for those that ask first (needs box 0.7.8)."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to test",
+        "items": [
+          "In Home devices tap «All to max», then «All to min».",
+          "Open a radiator and try «Min» and «Max».",
+          "Ask Wollie to turn off all the radiators and see how long it takes."
+        ],
+        "ordered": true
+      },
+      {
+        "title": "The box",
+        "items": [
+          "The «Radiators» card and Wollie's parallel command need box 0.7.8: install it from the app. It also brings sites with an incomplete certificate (like the Mendel's), feed search by words and dates, search in project categories, more readable project lists, and a file you ask Wollie for arrives in the chat you asked in. It includes 0.7.7.",
+          "No new SD-card image is needed. For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the app."
+        ],
+        "ordered": false
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    }
+  },
+  {
     "id": "ios-170",
     "kind": "ios",
     "title": "Build 170",
