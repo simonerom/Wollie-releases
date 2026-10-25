@@ -1,5 +1,46 @@
 [
   {
+    "id": "ios-170",
+    "kind": "ios",
+    "title": "Build 170",
+    "date": "2026-10-25",
+    "summary": "Radiators with a ruler, devices shown at once, your apps beside the chat, and reminders that get through a Focus.",
+    "sections": [
+      {
+        "title": "What’s new",
+        "items": [
+          "Radiators: choose the temperature by scrolling a ruler in half-degree steps, with − and + at its ends for the last touch. Nothing is sent until you tap «Set to…».",
+          "Devices: the list and a device's page show the last values at once, even after reopening the app; a small spinner at the top says they are being updated.",
+          "Apps beside the chat: in Me → Tabs, «Beside the chat» puts up to five apps to the left of the main chat (Home devices first, then the Portfolio, for example). Swipe right from the chat to reach them.",
+          "Time Sensitive reminders: they show on the lock screen even during a Focus or the Scheduled Summary.",
+          "On a phone without a box: subcategories in projects and search in sites' feeds."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to test",
+        "items": [
+          "Open a radiator, scroll the ruler, then «Set to…» or Cancel.",
+          "Put Home devices beside the chat in Me → Tabs and swipe right from the chat.",
+          "Set a reminder a few minutes ahead with a Focus on."
+        ],
+        "ordered": true
+      },
+      {
+        "title": "The box",
+        "items": [
+          "Install box update 0.7.8 from the app: it reads sites with an incomplete certificate (like the Mendel's), searches feeds by words and dates, has search in project categories, more readable project lists, and a file you ask Wollie for arrives in the chat you asked in. It includes 0.7.7 (recurring events, subcategories, watching feeds).",
+          "No new SD-card image is needed. For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the app."
+        ],
+        "ordered": false
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    }
+  },
+  {
     "id": "ios-169",
     "kind": "ios",
     "title": "Build 169",
