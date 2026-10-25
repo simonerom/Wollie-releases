@@ -1,5 +1,46 @@
 [
   {
+    "id": "ios-169",
+    "kind": "ios",
+    "title": "Build 169",
+    "date": "2026-10-25",
+    "summary": "Wollie reads web pages itself: the text, the links to follow and the files to download.",
+    "sections": [
+      {
+        "title": "What’s new",
+        "items": [
+          "Reading the web: give Wollie an address and it opens the page itself, reads its text and its links, and can follow them like a click. It no longer relies only on the search engine's summary, which often missed dates and numbers.",
+          "Files from the web: with box update 0.7.6, Wollie downloads a PDF or an attachment from a page (a school circular, for example), reads it, and can file it in a project with its category.",
+          "Feeds: when a site offers an RSS feed (many school sites do, for their circulars), Wollie reads its latest items in one go: the cheapest way to see what is new.",
+          "Safety: only public sites are opened, never devices or pages of your home network; a scheduled job opens only the sites you allowed it.",
+          "On the phone without a box, Wollie reads pages too (secure https addresses), but cannot download files."
+        ],
+        "ordered": false
+      },
+      {
+        "title": "What to test",
+        "items": [
+          "Ask: «leggi https://agrariomendel.edu.it/ e dimmi le ultime circolari». Then ask it to open one and read its PDF.",
+          "Ask it to file that circular in a project, in a category.",
+          "On a phone without a box, ask it to read a news page by its address."
+        ],
+        "ordered": true
+      },
+      {
+        "title": "The box",
+        "items": [
+          "Install box update 0.7.6 from the app for downloading files and for the box's own page reading. It also includes 0.7.5 (Sign in with Google).",
+          "No new SD-card image is needed. For a new box, start with [image 0.7.0](https://simonerom.github.io/Wollie-releases/changelog.html#box-0.7.0), then install updates from the app."
+        ],
+        "ordered": false
+      }
+    ],
+    "get": {
+      "label": "Join the TestFlight beta",
+      "url": "https://testflight.apple.com/join/kft9Hhv3"
+    }
+  },
+  {
     "id": "ios-167",
     "kind": "ios",
     "title": "Build 167",
